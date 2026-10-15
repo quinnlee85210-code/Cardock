@@ -1,0 +1,2 @@
+"NSFaceIDUsageDescription" = "使用面容 ID 解锁本机保险库，并验证本机密保恢复操作。";
+"NSLocalNetworkUsageDescription" = "允许同一可信 Wi-Fi 内的电脑连接 Cardock，进行临时录入。";

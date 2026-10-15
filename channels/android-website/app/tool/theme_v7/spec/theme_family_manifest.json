@@ -1,0 +1,160 @@
+{
+  "schema": "cardock.theme-family-manifest.v7",
+  "defaultFamily": "ceramicBlue",
+  "freeFamilies": [
+    "ceramicBlue"
+  ],
+  "premiumFamilies": [
+    "sakuraMist",
+    "paperArchive",
+    "lilacMoon",
+    "glacierBlue",
+    "mistCoral",
+    "neonZero",
+    "obsidianGold"
+  ],
+  "custom": {
+    "retained": true,
+    "premium": true,
+    "childSchemaVersion": 2,
+    "materialProfile": "standard"
+  },
+  "selectableOrder": [
+    "ceramicBlue",
+    "sakuraMist",
+    "paperArchive",
+    "lilacMoon",
+    "glacierBlue",
+    "mistCoral",
+    "neonZero",
+    "obsidianGold",
+    "custom"
+  ],
+  "launcherFamiliesRetained": [
+    "standard",
+    "prime",
+    "vivid"
+  ],
+  "families": [
+    {
+      "id": "ceramicBlue",
+      "order": 1,
+      "slug": "ceramic_blue",
+      "label": "瓷蓝晴光",
+      "english": "Ceramic Blue",
+      "description": "瓷白、钴蓝与微量暖黄；双向柔光的新拟物表面。",
+      "referenceMode": "light",
+      "isPremium": false,
+      "launcherFallback": "standard",
+      "legacySources": [
+        "standard"
+      ],
+      "referenceImage": "01_瓷蓝晴光_原始参考.png",
+      "contactSheet": "01_瓷蓝晴光_参考模式_四页联系表.png"
+    },
+    {
+      "id": "sakuraMist",
+      "order": 2,
+      "slug": "sakura_mist",
+      "label": "樱雾柔光",
+      "english": "Sakura Mist",
+      "description": "樱粉、莓红与丁香紫；轻柔雾光，不引入花朵图片。",
+      "referenceMode": "light",
+      "isPremium": true,
+      "launcherFallback": "prime",
+      "legacySources": [],
+      "referenceImage": "02_樱雾柔光_原始参考.png",
+      "contactSheet": "02_樱雾柔光_参考模式_四页联系表.png"
+    },
+    {
+      "id": "paperArchive",
+      "order": 3,
+      "slug": "paper_archive",
+      "label": "橙墨旧刊",
+      "english": "Paper Archive",
+      "description": "奶油纸、橄榄、烧橙与油墨黑；硬边纸刊质感。",
+      "referenceMode": "light",
+      "isPremium": true,
+      "launcherFallback": "prime",
+      "legacySources": [],
+      "referenceImage": "03_橙墨旧刊_原始参考.png",
+      "contactSheet": "03_橙墨旧刊_参考模式_四页联系表.png"
+    },
+    {
+      "id": "lilacMoon",
+      "order": 4,
+      "slug": "lilac_moon",
+      "label": "月纱丁香",
+      "english": "Lilac Moon",
+      "description": "月白、丁香与烟紫；缎面柔光，不引入照片或花卉素材。",
+      "referenceMode": "light",
+      "isPremium": true,
+      "launcherFallback": "prime",
+      "legacySources": [],
+      "referenceImage": "04_月纱丁香_原始参考.png",
+      "contactSheet": "04_月纱丁香_参考模式_四页联系表.png"
+    },
+    {
+      "id": "glacierBlue",
+      "order": 5,
+      "slug": "glacier_blue",
+      "label": "冰川蓝釉",
+      "english": "Glacier Blue",
+      "description": "冰蓝、海蓝与青色；以分层透明和高光模拟蓝釉玻璃。",
+      "referenceMode": "light",
+      "isPremium": true,
+      "launcherFallback": "standard",
+      "legacySources": [],
+      "referenceImage": "05_冰川蓝釉_原始参考.png",
+      "contactSheet": "05_冰川蓝釉_参考模式_四页联系表.png"
+    },
+    {
+      "id": "mistCoral",
+      "order": 6,
+      "slug": "mist_coral",
+      "label": "雾海珊瑚",
+      "english": "Mist Coral",
+      "description": "薄荷雾、奶油、灰蓝与珊瑚；克制的柔和 3D 表面。",
+      "referenceMode": "light",
+      "isPremium": true,
+      "launcherFallback": "vivid",
+      "legacySources": [
+        "vivid"
+      ],
+      "referenceImage": "06_雾海珊瑚_原始参考.png",
+      "contactSheet": "06_雾海珊瑚_参考模式_四页联系表.png"
+    },
+    {
+      "id": "neonZero",
+      "order": 7,
+      "slug": "neon_zero",
+      "label": "零域荧绿",
+      "english": "Neon Zero",
+      "description": "OLED 黑、荧光绿与冷白；线框与局部辉光，不铺满绿色。",
+      "referenceMode": "dark",
+      "isPremium": true,
+      "launcherFallback": "vivid",
+      "legacySources": [
+        "mono"
+      ],
+      "referenceImage": "07_零域荧绿_原始参考.png",
+      "contactSheet": "07_零域荧绿_参考模式_四页联系表.png"
+    },
+    {
+      "id": "obsidianGold",
+      "order": 8,
+      "slug": "obsidian_gold",
+      "label": "曜石鎏金",
+      "english": "Obsidian Gold",
+      "description": "黑曜、石墨与鎏金；金色只用于关键焦点与细线。",
+      "referenceMode": "dark",
+      "isPremium": true,
+      "launcherFallback": "prime",
+      "legacySources": [
+        "prime"
+      ],
+      "referenceImage": "08_曜石鎏金_原始参考.png",
+      "contactSheet": "08_曜石鎏金_参考模式_四页联系表.png"
+    }
+  ]
+}

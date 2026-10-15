@@ -1,0 +1,46 @@
+{
+  "identifier": "78AAB839-C434-489F-B9B6-82509D41A5A8",
+  "nonRenewingSubscriptions": [],
+  "products": [
+    {
+      "displayPrice": "9.90",
+      "familyShareable": false,
+      "internalID": "100000001",
+      "localizations": [
+        {
+          "description": "Local automated test fixture only.",
+          "displayName": "Cardock Full Lifetime",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "cardock_full_lifetime",
+      "referenceName": "Cardock Full Lifetime",
+      "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "0.01",
+      "familyShareable": false,
+      "internalID": "100000002",
+      "localizations": [
+        {
+          "description": "Local negative-test fixture only.",
+          "displayName": "Consumable negative test",
+          "locale": "en_US"
+        }
+      ],
+      "productID": "cardock_local_test_consumable",
+      "referenceName": "Local consumable rejection fixture",
+      "type": "Consumable"
+    }
+  ],
+  "settings": {
+    "_failTransactionsEnabled": false,
+    "_locale": "en_US",
+    "_storefront": "CHN"
+  },
+  "subscriptionGroups": [],
+  "version": {
+    "major": 3,
+    "minor": 0
+  }
+}

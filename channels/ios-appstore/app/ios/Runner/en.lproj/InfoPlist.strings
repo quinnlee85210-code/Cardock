@@ -1,0 +1,2 @@
+"NSFaceIDUsageDescription" = "Use Face ID to unlock your local vault and authorize device-bound password recovery.";
+"NSLocalNetworkUsageDescription" = "Connect your computer to Cardock on the same trusted Wi-Fi for a temporary entry session.";

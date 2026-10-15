@@ -1,0 +1,2 @@
+"NSFaceIDUsageDescription" = "Face ID で端末内の保管庫を解除し、この端末でのパスワード復旧を認証します。";
+"NSLocalNetworkUsageDescription" = "同じ信頼できる Wi-Fi 上のパソコンから、一時的に Cardock に入力するために使用します。";

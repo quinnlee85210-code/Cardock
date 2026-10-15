@@ -1,0 +1,26 @@
+Cardock offline brand identification assets
+
+Selected monochrome artwork is derived from Simple Icons 16.28.0, distributed under CC0-1.0. Third-party names and marks remain the property of their respective owners. Their appearance is solely for identifying user-entered services and does not imply affiliation, authorization, sponsorship, or endorsement. Entries marked monogram are neutral Cardock-generated fallbacks and are not official logos.
+
+Runtime brand-name normalization uses unorm_dart 0.3.2 under the MIT License. Its locked source evidence is recorded in manifests/cardock-unorm-dart-source.json.
+
+Copyright (c) 2018 Yasuhiro Shimizu <the.phantom.bane@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

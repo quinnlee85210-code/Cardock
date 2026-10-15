@@ -1,0 +1,13 @@
+{
+  "CARDOCK_DISTRIBUTION": "website",
+  "CARDOCK_APPLICATION_ID": "com.localaccount.account_subscription_manager",
+  "CARDOCK_CHECKOUT_URL": "https://maskden.com/cardock/buy",
+  "CARDOCK_WEBSITE_PUBLIC_KEYS": "{\"maskden-website-20260911-577a9c867a9b\":\"1xsbwH-cdOV0hWm60SZ-BA9JHarPUZHCvJq-E2LfQpg\"}",
+  "CARDOCK_ANDROID_SIGNING_SHA256": "98743A60FF43715D50E75BF2885F3C04F0B022E802D5D24B823D2F4C68C980DD",
+  "CARDOCK_PLAY_LICENSE_PUBLIC_KEY": "",
+  "CARDOCK_STORE_PRODUCT_ID": "",
+  "CARDOCK_STORE_TESTING": "false",
+  "CARDOCK_PRIVACY_POLICY_URL": "https://maskden.com/cardock/privacy",
+  "CARDOCK_SUPPORT_EMAIL": "laosan513002@gmail.com",
+  "CARDOCK_DEVELOPER_NAME": "KUN Cardock"
+}

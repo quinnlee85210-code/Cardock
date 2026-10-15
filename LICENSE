@@ -1,0 +1,75 @@
+Cardock Source Review License, Version 1.0
+Cardock 源码审查许可，1.0 版
+
+Copyright (c) 2026 quinnlee85210-code (Cardock / Maskden).
+
+This is a source-available review license, not an open-source license.
+The English text below is the operative license. A Chinese explanation follows.
+
+1. Scope
+This license covers the Cardock source code and related materials in this
+repository that the Licensor is entitled to license and that are not governed
+by a separate third-party license (the "Materials").
+
+2. Permitted review
+Subject to these terms, you receive a royalty-free, non-exclusive permission
+to read, download or clone the Materials, and to copy, inspect, modify,
+compile and run them in a private environment under your control, solely
+for security review, verification and evaluation. You may publish your
+findings, including critical findings, and limited source excerpts reasonably
+necessary to explain them. No approval of your findings is required.
+
+3. Rights not granted
+Except as permitted by Sections 2, 4 and 5 or by separate written permission,
+this license does not authorize publishing, distributing, selling,
+sublicensing or externally hosting the Materials, modifications, derivative
+works or compiled builds, or using them to provide products or services to
+others. This includes free application redistribution and closed-source
+commercial variants. Permission to evaluate a private build does not grant
+an official application purchase entitlement or a production-use license.
+
+4. GitHub platform rights
+This license does not limit rights independently granted by the Licensor
+to GitHub, its affiliates or other users under the applicable GitHub Terms
+of Service, including ordinary viewing and forking of a public repository
+through GitHub. This section grants no additional rights to redistribute
+outside those platform grants, publish binaries or commercially exploit
+derivatives beyond those grants or the other permissions in this license.
+
+5. Third-party materials and statutory rights
+Third-party materials remain subject to their own licenses. This license
+does not restrict rights granted by those licenses, including rights in
+vendored components, dependency code, generated runtime portions and
+third-party artwork. Rights that applicable law does not permit to be
+excluded or restricted remain unaffected. See THIRD_PARTY_NOTICES.md.
+
+6. Notices and branding
+Copies made under this license must retain applicable copyright, license
+and third-party notices. No right is granted to use Cardock, Maskden or
+other branding to represent a product as official, supported or endorsed.
+
+7. Reservation of rights and warranty
+Rights not expressly granted are reserved. The review Materials are
+provided "AS IS", without warranties to the extent permitted by applicable
+law. This section does not alter separate terms governing a purchased
+official product or applicable consumer rights. Source availability is
+not a security certification or a guarantee of the absence of defects.
+
+8. Termination
+Permissions granted by this license terminate upon breach. Termination
+does not affect independently existing rights described in Sections 4 and 5.
+
+中文说明（英文正文为许可依据）：
+本许可只覆盖有权许可的 Cardock 自有材料，不是标准开源许可。
+可以下载、克隆，并在私人环境中检查、修改、编译和运行，以进行安全
+审查、验证和评估。可以公开审查结论，包括负面结论，以及解释发现
+合理必需的少量源码，不必取得作者对审查结论的批准。
+除上述许可、GitHub 平台独立授权、第三方许可或另行书面许可外，
+不授权发布或分发材料、修改版、衍生作品、编译产物，不授权免费分发
+安装包、闭源商业改版或据此对外提供产品和服务。
+GitHub 服务条款独立授予的平台权利（包括浏览和 Fork）不受本许可限制。
+第三方原许可证及法律不得排除的权利继续有效。保留相关声明，不得
+把第三方版本表示为 Cardock 或 Maskden 官方发行、支持或认可的版本。
+审查材料按现状提供；公开源码不等于安全认证。官方付费产品的另行
+条款及法定消费者权利不因本许可改变。违反本许可时，此许可授予的
+权限终止，但不撤回平台、第三方许可或法律独立赋予的权利。

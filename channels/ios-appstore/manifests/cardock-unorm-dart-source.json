@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "package": "unorm_dart",
+  "version": "0.3.2",
+  "purpose": "Offline Unicode NFKC normalization for the Cardock brand-name index",
+  "registry": "https://pub.dev",
+  "metadataUrl": "https://pub.dev/api/packages/unorm_dart",
+  "archiveUrl": "https://pub.dev/api/archives/unorm_dart-0.3.2.tar.gz",
+  "archiveBytes": 48661,
+  "archiveSha256": "0C69186B03CA6ADDAB0774BCC0F4F17B88D4CE78D9D4D8F0619E30A99EAD58E7",
+  "licenseSpdx": "MIT",
+  "licenseSha256": "8884FC22F0944465AB8FCA4E934FEF3DB9AB2B3B14F95874F1D833AA75F81553",
+  "pubspecSha256": "A1F517E14F11F32210F9C817BFE61585BAAA41BF132CBD27EB9D8F1E23D2C3C3",
+  "unicodeDataSha256": "3C25B618FEF2CCCE2D5E5B47EAC096948C9900E5F3C2DA7D39FE56F8AD77CC74",
+  "unicodeVersion": "17.0",
+  "runtimeNetwork": false,
+  "verifiedAtUtc": "2026-08-08T08:45:00Z"
+}

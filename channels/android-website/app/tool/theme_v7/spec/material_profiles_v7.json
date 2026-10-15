@@ -1,0 +1,1265 @@
+{
+  "schema": "cardock.material-profiles.v7",
+  "constraints": {
+    "noBackdropFilterInScrollingLists": true,
+    "maximumRuntimeTextureAssets": 1,
+    "paperTextureAsset": "assets/theme/paper_grain_128.webp",
+    "referenceAndGoldenImagesAreProductionAssets": false
+  },
+  "families": [
+    {
+      "id": "ceramicBlue",
+      "label": "瓷蓝晴光",
+      "profiles": {
+        "light": {
+          "kind": "ceramicNeumorphic",
+          "cardBorderWidth": 0.7,
+          "elevatedBorderWidth": 0.8,
+          "cardShadows": [
+            {
+              "color": "#D9A5A5A5",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": 5,
+              "dy": 7
+            },
+            {
+              "color": "#F2FFFFFF",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": -5,
+              "dy": -5
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#E0A0A0A0",
+              "blurRadius": 24,
+              "spreadRadius": 0,
+              "dx": 7,
+              "dy": 10
+            },
+            {
+              "color": "#FFFFFFFF",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": -6,
+              "dy": -6
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#80939393",
+              "blurRadius": 30,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 14
+            },
+            {
+              "color": "#E6FFFFFF",
+              "blurRadius": 14,
+              "spreadRadius": 0,
+              "dx": -5,
+              "dy": -5
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#809C9C9C",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            },
+            {
+              "color": "#BFFFFFFF",
+              "blurRadius": 10,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -5
+            }
+          ],
+          "surfaceHighlightOpacity": 0.72,
+          "surfaceHighlightStop": 0.16,
+          "heroPrimaryMetricFill": "#12071B8C",
+          "heroPrimaryMetricBorder": "#22071B8C",
+          "heroMiniMetricFill": "#0DFFFFFF",
+          "heroMiniMetricBorder": "#26071B8C",
+          "heroWatermarkOpacity": 0.055,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#00000000",
+          "lineGlowBlur": 0.0,
+          "lineDecorationOpacity": 0.0,
+          "fabElevation": 3.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        },
+        "dark": {
+          "kind": "ceramicNeumorphic",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#D9000000",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 6,
+              "dy": 8
+            },
+            {
+              "color": "#224F6AAE",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": -4,
+              "dy": -4
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#F0000000",
+              "blurRadius": 28,
+              "spreadRadius": 0,
+              "dx": 8,
+              "dy": 12
+            },
+            {
+              "color": "#2B6687FF",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": -5,
+              "dy": -5
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#E6000000",
+              "blurRadius": 32,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 16
+            },
+            {
+              "color": "#406687FF",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -3
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#D9000000",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -4
+            }
+          ],
+          "surfaceHighlightOpacity": 0.1,
+          "surfaceHighlightStop": 0.14,
+          "heroPrimaryMetricFill": "#2E000000",
+          "heroPrimaryMetricBorder": "#1CFFFFFF",
+          "heroMiniMetricFill": "#1AFFFFFF",
+          "heroMiniMetricBorder": "#1FFFFFFF",
+          "heroWatermarkOpacity": 0.065,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#00000000",
+          "lineGlowBlur": 0.0,
+          "lineDecorationOpacity": 0.0,
+          "fabElevation": 4.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        }
+      }
+    },
+    {
+      "id": "sakuraMist",
+      "label": "樱雾柔光",
+      "profiles": {
+        "light": {
+          "kind": "sakuraGlow",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#40C7869C",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 7
+            },
+            {
+              "color": "#BFFFFFFF",
+              "blurRadius": 10,
+              "spreadRadius": 0,
+              "dx": -2,
+              "dy": -3
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#55C7869C",
+              "blurRadius": 26,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 10
+            },
+            {
+              "color": "#E6FFFFFF",
+              "blurRadius": 14,
+              "spreadRadius": 0,
+              "dx": -3,
+              "dy": -4
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#4DCF8AA2",
+              "blurRadius": 30,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 13
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#35C7869C",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -3
+            }
+          ],
+          "surfaceHighlightOpacity": 0.62,
+          "surfaceHighlightStop": 0.18,
+          "heroPrimaryMetricFill": "#12FFFFFF",
+          "heroPrimaryMetricBorder": "#35FFFFFF",
+          "heroMiniMetricFill": "#1AFFFFFF",
+          "heroMiniMetricBorder": "#2BFFFFFF",
+          "heroWatermarkOpacity": 0.045,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#2EE982A7",
+          "lineGlowBlur": 10.0,
+          "lineDecorationOpacity": 0.1,
+          "fabElevation": 3.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        },
+        "dark": {
+          "kind": "sakuraGlow",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#CC000000",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 8
+            },
+            {
+              "color": "#24FF90B5",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#E6000000",
+              "blurRadius": 28,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 12
+            },
+            {
+              "color": "#35FF90B5",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#E0000000",
+              "blurRadius": 30,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 14
+            },
+            {
+              "color": "#45FF90B5",
+              "blurRadius": 24,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#D9000000",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -4
+            }
+          ],
+          "surfaceHighlightOpacity": 0.08,
+          "surfaceHighlightStop": 0.14,
+          "heroPrimaryMetricFill": "#2E000000",
+          "heroPrimaryMetricBorder": "#20FFFFFF",
+          "heroMiniMetricFill": "#18FFFFFF",
+          "heroMiniMetricBorder": "#22FFFFFF",
+          "heroWatermarkOpacity": 0.055,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#42FF90B5",
+          "lineGlowBlur": 12.0,
+          "lineDecorationOpacity": 0.12,
+          "fabElevation": 4.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        }
+      }
+    },
+    {
+      "id": "paperArchive",
+      "label": "橙墨旧刊",
+      "profiles": {
+        "light": {
+          "kind": "paperInk",
+          "cardBorderWidth": 1.35,
+          "elevatedBorderWidth": 1.5,
+          "cardShadows": [
+            {
+              "color": "#3815110E",
+              "blurRadius": 0.8,
+              "spreadRadius": 0,
+              "dx": 2,
+              "dy": 3
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#4A15110E",
+              "blurRadius": 1.2,
+              "spreadRadius": 0,
+              "dx": 3,
+              "dy": 4
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#4515110E",
+              "blurRadius": 1.0,
+              "spreadRadius": 0,
+              "dx": 3,
+              "dy": 4
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#4015110E",
+              "blurRadius": 1.0,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "surfaceHighlightOpacity": 0.04,
+          "surfaceHighlightStop": 0.1,
+          "heroPrimaryMetricFill": "#12FFFFFF",
+          "heroPrimaryMetricBorder": "#9915110E",
+          "heroMiniMetricFill": "#14FFFFFF",
+          "heroMiniMetricBorder": "#8015110E",
+          "heroWatermarkOpacity": 0.035,
+          "timelineEmphasisBorder": "#FFF8E6",
+          "textureAsset": "assets/theme/paper_grain_128.webp",
+          "textureOpacity": 0.055,
+          "lineGlowColor": "#00000000",
+          "lineGlowBlur": 0.0,
+          "lineDecorationOpacity": 0.0,
+          "fabElevation": 0.0,
+          "fabHighlightElevation": 0.0,
+          "surfaceGradientEnabled": false
+        },
+        "dark": {
+          "kind": "paperInk",
+          "cardBorderWidth": 1.2,
+          "elevatedBorderWidth": 1.35,
+          "cardShadows": [
+            {
+              "color": "#B3000000",
+              "blurRadius": 1.0,
+              "spreadRadius": 0,
+              "dx": 2,
+              "dy": 3
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#D0000000",
+              "blurRadius": 1.2,
+              "spreadRadius": 0,
+              "dx": 3,
+              "dy": 4
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#D0000000",
+              "blurRadius": 1.2,
+              "spreadRadius": 0,
+              "dx": 3,
+              "dy": 4
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#C0000000",
+              "blurRadius": 1.0,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "surfaceHighlightOpacity": 0.02,
+          "surfaceHighlightStop": 0.1,
+          "heroPrimaryMetricFill": "#26000000",
+          "heroPrimaryMetricBorder": "#66DCD98E",
+          "heroMiniMetricFill": "#16FFFFFF",
+          "heroMiniMetricBorder": "#55DCD98E",
+          "heroWatermarkOpacity": 0.04,
+          "timelineEmphasisBorder": "#FFF4DF",
+          "textureAsset": "assets/theme/paper_grain_128.webp",
+          "textureOpacity": 0.045,
+          "lineGlowColor": "#00000000",
+          "lineGlowBlur": 0.0,
+          "lineDecorationOpacity": 0.0,
+          "fabElevation": 0.0,
+          "fabHighlightElevation": 0.0,
+          "surfaceGradientEnabled": false
+        }
+      }
+    },
+    {
+      "id": "lilacMoon",
+      "label": "月纱丁香",
+      "profiles": {
+        "light": {
+          "kind": "lilacSatin",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#3D887593",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 7
+            },
+            {
+              "color": "#AFFFFFFF",
+              "blurRadius": 10,
+              "spreadRadius": 0,
+              "dx": -2,
+              "dy": -3
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#55887593",
+              "blurRadius": 26,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 10
+            },
+            {
+              "color": "#D9FFFFFF",
+              "blurRadius": 14,
+              "spreadRadius": 0,
+              "dx": -3,
+              "dy": -4
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#50887593",
+              "blurRadius": 28,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 12
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#38887593",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -3
+            }
+          ],
+          "surfaceHighlightOpacity": 0.52,
+          "surfaceHighlightStop": 0.18,
+          "heroPrimaryMetricFill": "#10000000",
+          "heroPrimaryMetricBorder": "#28FFFFFF",
+          "heroMiniMetricFill": "#16FFFFFF",
+          "heroMiniMetricBorder": "#30FFFFFF",
+          "heroWatermarkOpacity": 0.048,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#28D1A4C4",
+          "lineGlowBlur": 10.0,
+          "lineDecorationOpacity": 0.08,
+          "fabElevation": 3.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        },
+        "dark": {
+          "kind": "lilacSatin",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#D0000000",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 8
+            },
+            {
+              "color": "#22C2A4E8",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#E6000000",
+              "blurRadius": 28,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 12
+            },
+            {
+              "color": "#32C2A4E8",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#E0000000",
+              "blurRadius": 30,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 14
+            },
+            {
+              "color": "#38C2A4E8",
+              "blurRadius": 22,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#D9000000",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -4
+            }
+          ],
+          "surfaceHighlightOpacity": 0.08,
+          "surfaceHighlightStop": 0.14,
+          "heroPrimaryMetricFill": "#2E000000",
+          "heroPrimaryMetricBorder": "#20FFFFFF",
+          "heroMiniMetricFill": "#18FFFFFF",
+          "heroMiniMetricBorder": "#22FFFFFF",
+          "heroWatermarkOpacity": 0.055,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#3DC2A4E8",
+          "lineGlowBlur": 12.0,
+          "lineDecorationOpacity": 0.1,
+          "fabElevation": 4.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        }
+      }
+    },
+    {
+      "id": "glacierBlue",
+      "label": "冰川蓝釉",
+      "profiles": {
+        "light": {
+          "kind": "glacierGlass",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#40315F82",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 8
+            },
+            {
+              "color": "#BFFFFFFF",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": -2,
+              "dy": -4
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#55315F82",
+              "blurRadius": 28,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 11
+            },
+            {
+              "color": "#E6FFFFFF",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": -3,
+              "dy": -5
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#55315F82",
+              "blurRadius": 32,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 14
+            },
+            {
+              "color": "#3035C6D8",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#40315F82",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -4
+            }
+          ],
+          "surfaceHighlightOpacity": 0.68,
+          "surfaceHighlightStop": 0.22,
+          "heroPrimaryMetricFill": "#0DFFFFFF",
+          "heroPrimaryMetricBorder": "#45FFFFFF",
+          "heroMiniMetricFill": "#1AFFFFFF",
+          "heroMiniMetricBorder": "#40FFFFFF",
+          "heroWatermarkOpacity": 0.05,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#3835C6D8",
+          "lineGlowBlur": 14.0,
+          "lineDecorationOpacity": 0.11,
+          "fabElevation": 3.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        },
+        "dark": {
+          "kind": "glacierGlass",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#CC000000",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 8
+            },
+            {
+              "color": "#2266C7E5",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#E6000000",
+              "blurRadius": 28,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 12
+            },
+            {
+              "color": "#3466C7E5",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#E0000000",
+              "blurRadius": 32,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 15
+            },
+            {
+              "color": "#4666C7E5",
+              "blurRadius": 24,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#D9000000",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -4
+            }
+          ],
+          "surfaceHighlightOpacity": 0.1,
+          "surfaceHighlightStop": 0.16,
+          "heroPrimaryMetricFill": "#2A000000",
+          "heroPrimaryMetricBorder": "#22FFFFFF",
+          "heroMiniMetricFill": "#18FFFFFF",
+          "heroMiniMetricBorder": "#26FFFFFF",
+          "heroWatermarkOpacity": 0.06,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#4666C7E5",
+          "lineGlowBlur": 16.0,
+          "lineDecorationOpacity": 0.12,
+          "fabElevation": 4.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        }
+      }
+    },
+    {
+      "id": "mistCoral",
+      "label": "雾海珊瑚",
+      "profiles": {
+        "light": {
+          "kind": "mistSoft3d",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#48526D72",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 5,
+              "dy": 7
+            },
+            {
+              "color": "#D9FFFDF0",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": -5,
+              "dy": -5
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#5C526D72",
+              "blurRadius": 26,
+              "spreadRadius": 0,
+              "dx": 7,
+              "dy": 10
+            },
+            {
+              "color": "#F2FFFDF0",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": -6,
+              "dy": -6
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#50526D72",
+              "blurRadius": 30,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 13
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#40526D72",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -3
+            }
+          ],
+          "surfaceHighlightOpacity": 0.58,
+          "surfaceHighlightStop": 0.18,
+          "heroPrimaryMetricFill": "#10000000",
+          "heroPrimaryMetricBorder": "#28FFFFFF",
+          "heroMiniMetricFill": "#18FFFFFF",
+          "heroMiniMetricBorder": "#30FFFFFF",
+          "heroWatermarkOpacity": 0.045,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#26F3BFA0",
+          "lineGlowBlur": 10.0,
+          "lineDecorationOpacity": 0.07,
+          "fabElevation": 3.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        },
+        "dark": {
+          "kind": "mistSoft3d",
+          "cardBorderWidth": 0.8,
+          "elevatedBorderWidth": 0.9,
+          "cardShadows": [
+            {
+              "color": "#D0000000",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 8
+            },
+            {
+              "color": "#218BC1C5",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#E6000000",
+              "blurRadius": 28,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 12
+            },
+            {
+              "color": "#308BC1C5",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -2
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#E0000000",
+              "blurRadius": 30,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 14
+            },
+            {
+              "color": "#36F0B493",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#D9000000",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -4
+            }
+          ],
+          "surfaceHighlightOpacity": 0.08,
+          "surfaceHighlightStop": 0.14,
+          "heroPrimaryMetricFill": "#2C000000",
+          "heroPrimaryMetricBorder": "#20FFFFFF",
+          "heroMiniMetricFill": "#18FFFFFF",
+          "heroMiniMetricBorder": "#22FFFFFF",
+          "heroWatermarkOpacity": 0.052,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#36F0B493",
+          "lineGlowBlur": 12.0,
+          "lineDecorationOpacity": 0.09,
+          "fabElevation": 4.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        }
+      }
+    },
+    {
+      "id": "neonZero",
+      "label": "零域荧绿",
+      "profiles": {
+        "light": {
+          "kind": "neonLine",
+          "cardBorderWidth": 1.0,
+          "elevatedBorderWidth": 1.1,
+          "cardShadows": [
+            {
+              "color": "#201D3A29",
+              "blurRadius": 10,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 4
+            },
+            {
+              "color": "#2024D982",
+              "blurRadius": 8,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#301D3A29",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 6
+            },
+            {
+              "color": "#3024D982",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#401D3A29",
+              "blurRadius": 22,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 9
+            },
+            {
+              "color": "#4024D982",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#301D3A29",
+              "blurRadius": 14,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -3
+            }
+          ],
+          "surfaceHighlightOpacity": 0.1,
+          "surfaceHighlightStop": 0.12,
+          "heroPrimaryMetricFill": "#2A000000",
+          "heroPrimaryMetricBorder": "#3324EC8C",
+          "heroMiniMetricFill": "#16FFFFFF",
+          "heroMiniMetricBorder": "#3D24EC8C",
+          "heroWatermarkOpacity": 0.04,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#5524D982",
+          "lineGlowBlur": 12.0,
+          "lineDecorationOpacity": 0.18,
+          "fabElevation": 2.0,
+          "fabHighlightElevation": 0.0,
+          "surfaceGradientEnabled": false
+        },
+        "dark": {
+          "kind": "neonLine",
+          "cardBorderWidth": 1.0,
+          "elevatedBorderWidth": 1.15,
+          "cardShadows": [
+            {
+              "color": "#E6000000",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 5
+            },
+            {
+              "color": "#5524EC8C",
+              "blurRadius": 10,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#F0000000",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 7
+            },
+            {
+              "color": "#7024EC8C",
+              "blurRadius": 14,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#F0000000",
+              "blurRadius": 22,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 10
+            },
+            {
+              "color": "#8024EC8C",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#F0000000",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -3
+            },
+            {
+              "color": "#4024EC8C",
+              "blurRadius": 10,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "surfaceHighlightOpacity": 0.02,
+          "surfaceHighlightStop": 0.1,
+          "heroPrimaryMetricFill": "#33000000",
+          "heroPrimaryMetricBorder": "#6624EC8C",
+          "heroMiniMetricFill": "#0D24EC8C",
+          "heroMiniMetricBorder": "#7724EC8C",
+          "heroWatermarkOpacity": 0.05,
+          "timelineEmphasisBorder": "#FFFFFFFF",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#9924EC8C",
+          "lineGlowBlur": 14.0,
+          "lineDecorationOpacity": 0.24,
+          "fabElevation": 0.0,
+          "fabHighlightElevation": 0.0,
+          "surfaceGradientEnabled": false
+        }
+      }
+    },
+    {
+      "id": "obsidianGold",
+      "label": "曜石鎏金",
+      "profiles": {
+        "light": {
+          "kind": "obsidianMetal",
+          "cardBorderWidth": 0.9,
+          "elevatedBorderWidth": 1.0,
+          "cardShadows": [
+            {
+              "color": "#3427231B",
+              "blurRadius": 16,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 6
+            },
+            {
+              "color": "#1FC69A3B",
+              "blurRadius": 8,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#4827231B",
+              "blurRadius": 24,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 9
+            },
+            {
+              "color": "#2BC69A3B",
+              "blurRadius": 12,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#5527231B",
+              "blurRadius": 28,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 12
+            },
+            {
+              "color": "#3DC69A3B",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#3827231B",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -3
+            }
+          ],
+          "surfaceHighlightOpacity": 0.32,
+          "surfaceHighlightStop": 0.16,
+          "heroPrimaryMetricFill": "#30000000",
+          "heroPrimaryMetricBorder": "#44C69A3B",
+          "heroMiniMetricFill": "#16FFFFFF",
+          "heroMiniMetricBorder": "#38C69A3B",
+          "heroWatermarkOpacity": 0.05,
+          "timelineEmphasisBorder": "#FFF8F4E9",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#40C69A3B",
+          "lineGlowBlur": 12.0,
+          "lineDecorationOpacity": 0.12,
+          "fabElevation": 3.0,
+          "fabHighlightElevation": 1.0,
+          "surfaceGradientEnabled": true
+        },
+        "dark": {
+          "kind": "obsidianMetal",
+          "cardBorderWidth": 0.9,
+          "elevatedBorderWidth": 1.0,
+          "cardShadows": [
+            {
+              "color": "#E6000000",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 7
+            },
+            {
+              "color": "#32E2B653",
+              "blurRadius": 10,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "elevatedCardShadows": [
+            {
+              "color": "#F0000000",
+              "blurRadius": 26,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 10
+            },
+            {
+              "color": "#48E2B653",
+              "blurRadius": 14,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "heroShadows": [
+            {
+              "color": "#F0000000",
+              "blurRadius": 30,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 13
+            },
+            {
+              "color": "#66E2B653",
+              "blurRadius": 20,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "dockShadows": [
+            {
+              "color": "#F0000000",
+              "blurRadius": 18,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": -4
+            },
+            {
+              "color": "#26E2B653",
+              "blurRadius": 10,
+              "spreadRadius": 0,
+              "dx": 0,
+              "dy": 0
+            }
+          ],
+          "surfaceHighlightOpacity": 0.05,
+          "surfaceHighlightStop": 0.12,
+          "heroPrimaryMetricFill": "#32000000",
+          "heroPrimaryMetricBorder": "#55E2B653",
+          "heroMiniMetricFill": "#10E2B653",
+          "heroMiniMetricBorder": "#66E2B653",
+          "heroWatermarkOpacity": 0.06,
+          "timelineEmphasisBorder": "#FFF8F4E8",
+          "textureAsset": null,
+          "textureOpacity": 0.0,
+          "lineGlowColor": "#70E2B653",
+          "lineGlowBlur": 14.0,
+          "lineDecorationOpacity": 0.16,
+          "fabElevation": 1.0,
+          "fabHighlightElevation": 0.0,
+          "surfaceGradientEnabled": true
+        }
+      }
+    }
+  ]
+}

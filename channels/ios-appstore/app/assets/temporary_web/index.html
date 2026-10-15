@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title data-i18n data-en="Cardock · Temporary PC Entry" data-ja="Cardock · パソコンから一時入力">Cardock · 电脑临时录入</title>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">CARDOCK · LOCAL SESSION</p>
+      <h1 data-i18n data-en="Temporary PC Entry" data-ja="パソコンから一時入力">电脑临时录入</h1>
+      <p data-i18n data-en="This page is served by your phone and does not connect to the public internet, cloud services, or a relay." data-ja="このページはスマートフォンから配信され、パブリックインターネット、クラウドサービス、リレーには接続しません。">页面来自手机，不连接公网、云端或中继。</p>
+    </div>
+    <span id="connection-status" class="status status-waiting" data-i18n data-en="Waiting to connect" data-ja="接続待ち">等待连接</span>
+  </header>
+
+  <main>
+    <section class="notice warning">
+      <h2 data-i18n data-en="Use only on your own phone hotspot or a trusted home network" data-ja="自分のスマートフォンのテザリング、または信頼できる家庭内ネットワークでのみ使用してください">只在自己的手机热点或可信家庭网络使用</h2>
+      <p><strong data-i18n data-en="Cardock may stay in the background and the phone may be locked. The connection continues until the selected duration ends or you tap Disconnect on the phone. Swiping Cardock away or powering off the phone makes the connection unavailable." data-ja="Cardockをバックグラウンドに移したり、端末をロックしたりしても接続は継続します。選択した時間が終了するか、スマートフォンで「切断」を押すまで維持されます。Cardockをタスクから終了した場合や端末の電源を切った場合は利用できません。">Cardock 可在后台运行，手机也可以锁屏；连接会持续到所选时间结束，或你在手机点击“主动断开”。划掉 Cardock 或手机关机会使连接不可用。</strong></p>
+      <p data-i18n data-en="A regular private-network HTTP page cannot protect against a local attacker who can actively modify traffic. Do not use this on hotel, company guest, public Wi-Fi, or unfamiliar networks." data-ja="一般的なプライベートネットワーク上のHTTPページでは、通信を改ざんできるネットワーク内の攻撃者を防げません。ホテル、会社のゲスト用ネットワーク、公共Wi-Fi、不明なネットワークでは使用しないでください。">普通私网 HTTP 页面无法抵御能主动篡改网页的局域网攻击者。请勿在酒店、公司访客网、公共 Wi-Fi 或陌生网络使用。</p>
+    </section>
+
+    <section id="pairing-panel" class="panel narrow">
+      <p class="step" data-i18n data-en="STEP 1 OF 1" data-ja="ステップ 1 / 1">步骤 1 / 1</p>
+      <h2 data-i18n data-en="Enter the one-time connection code shown on your phone" data-ja="スマートフォンに表示されたワンタイム接続コードを入力">输入手机显示的一次性连接码</h2>
+      <p data-i18n data-en="The connection code contains 8 uppercase English letters and expires immediately after pairing. Do not share it." data-ja="接続コードは英大文字8文字で、ペアリングが完了すると直ちに無効になります。他人と共有しないでください。">连接码为 8 位大写英文字母，不含数字；配对完成后立即失效。不要把它发给他人。</p>
+      <p data-i18n data-en="Consider opening this page in a private browsing window first. It can reduce local traces, but cannot make browsing completely trace-free." data-ja="まずブラウザのプライベートウィンドウでこのページを開くことをおすすめします。端末に残る情報を減らせますが、完全に痕跡を残さないことはできません。">建议先使用浏览器无痕/隐私窗口打开本页；它只能减少本机残留，不能做到绝对无痕。</p>
+      <form id="pairing-form" autocomplete="off">
+        <label for="connection-code" data-i18n data-en="One-time connection code" data-ja="ワンタイム接続コード">一次性连接码</label>
+        <input id="connection-code" type="text" inputmode="text" maxlength="8" pattern="[A-Za-z]{8}"
+               autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
+               placeholder="ABCDEFGH" required>
+        <button id="pair-button" type="submit" class="primary" data-i18n data-en="Connect to phone" data-ja="スマートフォンに接続">连接手机</button>
+      </form>
+    </section>
+
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+
+    <section id="workspace" hidden>
+      <div class="toolbar panel">
+        <div>
+          <h2 data-i18n data-en="This temporary session" data-ja="今回の一時セッション">本次临时会话</h2>
+          <p id="scope-description" data-i18n data-en="Permissions are controlled on your phone." data-ja="権限はスマートフォン側で管理されます。">权限由手机端决定。</p>
+        </div>
+        <div class="toolbar-actions">
+          <button id="refresh-button" type="button" data-i18n data-en="Refresh" data-ja="更新">刷新</button>
+          <button id="disconnect-button" type="button" class="danger" data-i18n data-en="Disconnect and clear page" data-ja="切断してページを消去">断开并清空页面</button>
+        </div>
+      </div>
+
+      <div class="workspace-tabs panel" role="tablist" aria-label="录入方式" data-aria-label-en="Entry mode" data-aria-label-ja="入力方法">
+        <button id="single-entry-tab" type="button" class="tab-button active" role="tab" aria-selected="true" aria-controls="single-entry-grid"
+                data-i18n data-en="Single entry" data-ja="1件ずつ入力">单条录入</button>
+        <button id="batch-import-tab" type="button" class="tab-button" role="tab" aria-selected="false" aria-controls="batch-import-panel"
+                data-i18n data-en="Batch migration" data-ja="一括移行">批量迁移</button>
+      </div>
+
+      <section id="batch-import-panel" class="panel batch-import-panel" role="tabpanel" aria-labelledby="batch-import-tab" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="step">BATCH MIGRATION</p>
+            <h2 data-i18n data-en="Batch migration and import" data-ja="一括移行とインポート">批量迁移与导入</h2>
+            <p data-i18n data-en="The file is sent only through this encrypted session. The phone rebuilds the authoritative preview before any commit." data-ja="ファイルはこの暗号化セッション内でのみ送信されます。コミット前にスマートフォンが正式なプレビューを再構築します。">文件只通过本次加密会话发送；提交前由手机重新生成权威预览。</p>
+            <p data-i18n data-en="To prevent hidden-history probing through duplicate results, PC batch preview requires history summaries or details to be explicitly enabled for this connection on your phone. Otherwise, use the phone migration center." data-ja="重複結果から非表示の履歴を推測されないよう、パソコンの一括プレビューを使うには、スマートフォンで今回の接続に履歴の概要または詳細を明示的に許可する必要があります。許可しない場合は、スマートフォンの移行センターを使用してください。">为防止通过重复结果探测隐藏历史，电脑批量预览要求先在手机为本次连接明确启用历史摘要或详情；否则请改用手机迁移中心。</p>
+          </div>
+          <button id="batch-clear-button" type="button" class="danger" data-i18n data-en="Clear batch memory" data-ja="一括移行のメモリを消去">清空批量内存</button>
+        </div>
+
+        <div class="template-actions">
+          <span data-i18n data-en="Local templates (headers follow the current language):" data-ja="ローカルテンプレート（見出しは現在の言語に合わせます）：">本地模板（表头跟随当前语言）：</span>
+          <label class="template-format"><span data-i18n data-en="File type" data-ja="ファイル形式">文件类型</span>
+            <select id="batch-template-format">
+              <option value="xlsx" data-i18n data-en="Excel workbook (.xlsx)" data-ja="Excelブック（.xlsx）">Excel 表格（.xlsx）</option>
+              <option value="docx" data-i18n data-en="Word table (.docx)" data-ja="Word表（.docx）">Word 表格（.docx）</option>
+              <option value="txt" data-i18n data-en="Tab-delimited text (.txt)" data-ja="タブ区切りテキスト（.txt）">TXT 文档（制表符分隔）</option>
+              <option value="tsv">TSV (.tsv)</option>
+              <option value="csv" data-i18n data-en="CSV (.csv)" data-ja="CSV（.csv）">CSV（.csv）</option>
+            </select>
+          </label>
+          <button id="download-account-template" type="button" data-i18n data-en="Account template" data-ja="アカウント用テンプレート">账号模板</button>
+          <button id="download-subscription-template" type="button" data-i18n data-en="Subscription template" data-ja="サブスクリプション用テンプレート">订阅模板</button>
+          <button id="download-custom-fields-template" type="button" data-i18n data-en="Custom field companion" data-ja="追加項目の補助テンプレート">自定义字段伴随模板</button>
+        </div>
+        <p class="batch-safety-note" data-i18n data-en="The custom field companion uses the same account_key as the account template. Import the account file and companion on the phone in Data Migration Center; the browser batch uploader continues to accept account and subscription files only. Types: text, sensitive_text, url, date, number." data-ja="追加項目の補助ファイルはアカウントテンプレートと同じaccount_keyを使います。スマートフォンのデータ移行センターでアカウントと補助ファイルを選択してください。ブラウザの一括アップロードはアカウントとサブスクリプションの2種類に対応します。タイプ：text、sensitive_text、url、date、number。">自定义字段伴随模板使用与账号模板相同的 account_key。请在手机“数据迁移中心”选择账号文件及伴随文件；网页批量上传仍支持账号和订阅两份文件。字段类型：text、sensitive_text、url、date、number。</p>
+        <p class="batch-safety-note" data-i18n data-en="Account Link Key connects an account row to one or more subscription rows. Use the same value in both templates; it is not a username or password." data-ja="アカウント連携キーは、1件のアカウント行と1件以上のサブスクリプション行を結び付けます。両方のテンプレートに同じ値を入力してください。ユーザー名やパスワードではありません。">账号关联标识用于把一个账号行关联到一个或多个订阅行；两份模板填写相同值即可，它不是用户名或密码。</p>
+        <p class="batch-safety-note" data-i18n data-en="In the subscription template, subscription_start_date is an optional YYYY-MM-DD value. Leave it blank when unknown; the phone will create a pending draft. next_renewal_date means only the next renewal and is never used as the start date." data-ja="サブスクリプション用テンプレートの subscription_start_date は任意の YYYY-MM-DD です。不明な場合は空欄にすると、スマートフォンで要入力の下書きが作成されます。next_renewal_date は次回更新日のみを意味し、開始日の代わりには使用されません。">订阅模板中的 subscription_start_date 为可选 YYYY-MM-DD；未知时请留空，手机会创建待完善草稿。next_renewal_date 只表示下次续费日期，绝不会代填开始日期。</p>
+
+        <p class="batch-safety-note" data-i18n data-en="Add one account file and one subscription file in either order. Uploading the same type again replaces only that file; both files form one phone-validated import plan." data-ja="アカウントファイルとサブスクリプションファイルを任意の順序で1つずつ追加できます。同じ種類を再アップロードすると、そのファイルだけが置き換わり、2つのファイルはスマートフォンで検証される1つのインポート計画になります。">账号文件和订阅文件可按任意顺序各加入一份；再次上传同类型只替换该文件，两份文件共同形成一个由手机验证的导入计划。</p>
+        <div id="batch-document-slots" class="batch-document-slots" aria-live="polite"></div>
+
+        <div class="batch-source-grid">
+          <label><span data-i18n data-en="Source format" data-ja="移行元の形式">来源格式</span>
+            <select id="batch-source">
+              <option value="auto" data-i18n data-en="Auto-detect verified formats" data-ja="検証済み形式を自動検出">自动检测已验证格式</option>
+              <option value="bitwarden_csv">Bitwarden CSV</option>
+              <option value="keepassxc_csv">KeePassXC CSV</option>
+              <option value="onepassword_csv">1Password CSV</option>
+              <option value="cardock_accounts_template" data-i18n data-en="Cardock account template" data-ja="Cardockアカウント用テンプレート">Cardock 账号模板</option>
+              <option value="cardock_subscriptions_template" data-i18n data-en="Cardock subscription template" data-ja="Cardockサブスクリプション用テンプレート">Cardock 订阅模板</option>
+              <option value="generic_tabular" data-i18n data-en="Generic CSV / TSV / semicolon table" data-ja="汎用CSV / TSV / セミコロン区切り">通用 CSV / TSV / 分号表格</option>
+            </select>
+          </label>
+          <div id="batch-drop-zone" class="drop-zone" role="button" tabindex="0">
+            <strong data-i18n data-en="Drop an account or subscription XLSX, DOCX, CSV, TSV, or TXT file here" data-ja="アカウントまたはサブスクリプションのXLSX、DOCX、CSV、TSV、TXTファイルをここにドロップ">拖放账号或订阅 XLSX、DOCX、CSV、TSV、TXT 文件到这里</strong>
+            <span data-i18n data-en="or choose a file (up to 10 MiB)" data-ja="またはファイルを選択（最大10 MiB）">或选择文件（最大 10 MiB）</span>
+            <label id="batch-file-button" for="batch-file-input" class="file-picker-label primary" role="button" tabindex="0"><span data-i18n data-en="Choose file" data-ja="ファイルを選択">选择文件</span></label>
+            <input id="batch-file-input" class="visually-hidden-file" type="file" accept=".xlsx,.docx,.csv,.tsv,.txt,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/csv,text/tab-separated-values,text/plain">
+          </div>
+          <label class="batch-paste-label"><span data-i18n data-en="Or paste delimited text" data-ja="または区切りテキストを貼り付け">或粘贴分隔文本</span>
+            <textarea id="batch-paste-input" rows="6" maxlength="10485760" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+                      placeholder="粘贴含表头的 CSV / TSV / 分号文本" data-i18n-placeholder
+                      data-placeholder-en="Paste CSV, TSV, or semicolon-delimited text with headers"
+                      data-placeholder-ja="ヘッダーを含むCSV、TSV、セミコロン区切りテキストを貼り付け"></textarea>
+            <button id="batch-paste-button" type="button" data-i18n data-en="Build authoritative preview" data-ja="正式なプレビューを作成">生成权威预览</button>
+          </label>
+        </div>
+
+        <div id="batch-summary" class="batch-summary" role="status" aria-live="polite"></div>
+        <div id="batch-mapping" class="batch-mapping"></div>
+
+        <div id="batch-table-region" class="batch-table-region" hidden>
+          <div class="batch-table-actions">
+            <label class="check"><input id="batch-select-all" type="checkbox" checked><span data-i18n data-en="Select all on this page" data-ja="このページをすべて選択">本页全选</span></label>
+            <button id="batch-delete-selected" type="button" class="danger" data-i18n data-en="Remove selected from this import" data-ja="選択項目を今回の移行から除外">从本次导入移除所选</button>
+          </div>
+          <div class="table-scroll" tabindex="0">
+            <table class="batch-table">
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n data-en="Select" data-ja="選択">选择</th>
+                  <th scope="col" data-i18n data-en="Source row" data-ja="元の行">原始行</th>
+                  <th scope="col" data-i18n data-en="Status" data-ja="状態">状态</th>
+                  <th scope="col" data-i18n data-en="Type" data-ja="種類">类型</th>
+                  <th scope="col" data-i18n data-en="Platform / plan" data-ja="プラットフォーム / プラン">平台 / 方案</th>
+                  <th scope="col" data-i18n data-en="Login / account key" data-ja="ログイン / account_key">登录账号 / account_key</th>
+                  <th scope="col" data-i18n data-en="Email / amount" data-ja="メール / 金額">邮箱 / 金额</th>
+                  <th scope="col" data-i18n data-en="Phone / currency" data-ja="電話 / 通貨">手机 / 币种</th>
+                  <th scope="col" data-i18n data-en="Password / billing cycle" data-ja="パスワード / 請求周期">密码 / 账单周期</th>
+                  <th scope="col" data-i18n data-en="Subscription start" data-ja="契約開始日">订阅开始日期</th>
+                  <th scope="col" data-i18n data-en="URL / next renewal" data-ja="URL / 次回更新">URL / 下次续费</th>
+                  <th scope="col" data-i18n data-en="Notes" data-ja="メモ">备注</th>
+                  <th scope="col" data-i18n data-en="Brand suggestion / auto-renew" data-ja="ブランド候補 / 自動更新">品牌建议 / 自动续费</th>
+                  <th scope="col" data-i18n data-en="Payment / reminder days" data-ja="支払方法 / 通知日数">支付方式 / 提醒天数</th>
+                  <th scope="col" data-i18n data-en="Duplicate / linked account" data-ja="重複 / 関連アカウント">重复 / 关联账号</th>
+                  <th scope="col" data-i18n data-en="Action" data-ja="操作">操作</th>
+                </tr>
+              </thead>
+              <tbody id="batch-table-body"></tbody>
+            </table>
+          </div>
+          <div class="pagination">
+            <button id="batch-previous-page" type="button" data-i18n data-en="Previous page" data-ja="前のページ">上一页</button>
+            <span id="batch-page-status"></span>
+            <button id="batch-next-page" type="button" data-i18n data-en="Next page" data-ja="次のページ">下一页</button>
+          </div>
+          <p class="batch-safety-note" data-i18n data-en="Field-by-field duplicate merging is handled only in the phone migration center. This page does not silently downgrade that choice and never receives an existing vault password." data-ja="重複項目のフィールド単位のマージは、スマートフォンの移行センターでのみ処理します。このページで選択内容を暗黙に変更することはなく、保管庫内の既存パスワードを受信することもありません。">逐字段重复合并只在手机迁移中心处理；本网页不会静默降级该决议，也绝不会接收保险库中的已有密码。</p>
+          <label class="batch-confirm check"><input id="batch-final-confirm" type="checkbox"><span data-i18n data-en="I reviewed the source, mapping, password status, and duplicate handling." data-ja="移行元、マッピング、パスワード状態、重複時の処理を確認しました。">我已核对来源、映射、密码状态和重复项处理。</span></label>
+          <p id="batch-commit-guidance" class="batch-commit-guidance" role="status" aria-live="polite"></p>
+          <button id="batch-commit-button" type="button" class="primary" disabled data-i18n data-en="Commit selected records on phone" data-ja="選択した記録をスマートフォンにコミット">在手机提交所选记录</button>
+          <p id="batch-submit-status" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section id="single-entry-grid" class="grid two-columns single-entry-section" role="tabpanel" aria-labelledby="single-entry-tab">
+        <article class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="step">ACCOUNTS</p>
+              <h2 data-i18n data-en="Accounts" data-ja="アカウント">账号</h2>
+            </div>
+            <button id="new-account-button" type="button" class="primary" data-i18n data-en="Add account" data-ja="アカウントを追加">新增账号</button>
+          </div>
+          <div id="account-list" class="record-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="section-heading">
+            <div>
+              <p class="step">SUBSCRIPTIONS</p>
+              <h2 data-i18n data-en="Subscriptions" data-ja="サブスクリプション">订阅</h2>
+            </div>
+            <button id="new-subscription-button" type="button" class="primary" data-i18n data-en="Add subscription" data-ja="サブスクリプションを追加">新增订阅</button>
+          </div>
+          <div id="subscription-list" class="record-list"></div>
+        </article>
+      </section>
+
+      <section id="account-editor" class="panel editor single-entry-section" hidden>
+        <div class="section-heading">
+          <h2 id="account-editor-title" data-i18n data-en="Add account" data-ja="アカウントを追加">新增账号</h2>
+          <button id="cancel-account-button" type="button" data-i18n data-en="Cancel" data-ja="キャンセル">取消</button>
+        </div>
+        <form id="account-form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          <input id="account-id" type="hidden">
+          <div class="form-grid">
+            <label><span data-i18n data-en="Platform or app name" data-ja="プラットフォームまたはアプリ名">平台或应用名称</span><input id="account-platform" maxlength="100" required autocomplete="off"></label>
+            <label><span data-i18n data-en="Category (select or enter)" data-ja="カテゴリー（選択または入力）">分类（可选择或输入）</span>
+              <input id="account-category" list="account-category-options" maxlength="100" autocomplete="off"
+                     placeholder="选择常用分类或直接输入自定义分类" data-i18n-placeholder
+                     data-placeholder-en="Select a common category or enter a custom category"
+                     data-placeholder-ja="一般的なカテゴリーを選択するか、独自のカテゴリーを入力">
+              <datalist id="account-category-options">
+                <option value="AI工具" data-i18n-option data-label-en="AI tools" data-label-ja="AIツール" data-value-en="AI tools" data-value-ja="AIツール"></option>
+                <option value="影音娱乐" data-i18n-option data-label-en="Entertainment" data-label-ja="動画・音楽" data-value-en="Entertainment" data-value-ja="動画・音楽"></option>
+                <option value="购物" data-i18n-option data-label-en="Shopping" data-label-ja="ショッピング" data-value-en="Shopping" data-value-ja="ショッピング"></option>
+                <option value="社交" data-i18n-option data-label-en="Social" data-label-ja="ソーシャル" data-value-en="Social" data-value-ja="ソーシャル"></option>
+                <option value="办公" data-i18n-option data-label-en="Productivity" data-label-ja="仕事効率化" data-value-en="Productivity" data-value-ja="仕事効率化"></option>
+                <option value="云服务" data-i18n-option data-label-en="Cloud services" data-label-ja="クラウドサービス" data-value-en="Cloud services" data-value-ja="クラウドサービス"></option>
+                <option value="金融" data-i18n-option data-label-en="Finance" data-label-ja="金融" data-value-en="Finance" data-value-ja="金融"></option>
+                <option value="保险" data-i18n-option data-label-en="Insurance" data-label-ja="保険" data-value-en="Insurance" data-value-ja="保険"></option>
+                <option value="其他" data-i18n-option data-label-en="Other" data-label-ja="その他" data-value-en="Other" data-value-ja="その他"></option>
+              </datalist>
+            </label>
+            <label><span data-i18n data-en="Sign-in ID" data-ja="ログインID">登录账号</span><input id="account-login" maxlength="512" autocomplete="off"></label>
+            <label><span data-i18n data-en="Username" data-ja="ユーザー名">用户名</span><input id="account-username" maxlength="512" autocomplete="off"></label>
+            <label><span data-i18n data-en="Linked phone" data-ja="連携済み電話番号">绑定手机</span><input id="account-phone" maxlength="100" autocomplete="off"></label>
+            <label><span data-i18n data-en="Linked email" data-ja="連携済みメール">绑定邮箱</span><input id="account-email" maxlength="320" autocomplete="off"></label>
+            <label><span data-i18n data-en="Website" data-ja="ウェブサイト">网站</span><input id="account-website" maxlength="2048" autocomplete="off"></label>
+            <label id="password-mode-label" hidden><span data-i18n data-en="Password handling" data-ja="パスワードの処理">密码处理</span>
+              <select id="account-password-mode">
+                <option value="preserve" data-i18n data-en="Keep existing password" data-ja="現在のパスワードを維持">保留现有密码</option>
+                <option value="replace" data-i18n data-en="Replace password" data-ja="パスワードを置き換える">替换密码</option>
+                <option value="clear" data-i18n data-en="Remove saved password" data-ja="パスワードを消去">清除密码</option>
+              </select>
+            </label>
+            <label><span data-i18n data-en="Password" data-ja="パスワード">密码</span><input id="account-password" type="password" maxlength="4096" autocomplete="off" data-lpignore="true"></label>
+            <label class="wide"><span data-i18n data-en="Notes" data-ja="メモ">备注</span><textarea id="account-notes" maxlength="10000" rows="4"></textarea></label>
+            <div class="wide"><div id="account-custom-fields"></div><button id="add-custom-field" type="button" data-i18n data-en="Add custom field" data-ja="追加項目を追加">添加自定义字段</button></div>
+          </div>
+          <button type="submit" class="primary" data-i18n data-en="Encrypt and save to phone" data-ja="暗号化してスマートフォンに保存">加密保存到手机</button>
+        </form>
+      </section>
+
+      <section id="subscription-editor" class="panel editor single-entry-section" hidden>
+        <div class="section-heading">
+          <h2 id="subscription-editor-title" data-i18n data-en="Add subscription" data-ja="サブスクリプションを追加">新增订阅</h2>
+          <button id="cancel-subscription-button" type="button" data-i18n data-en="Cancel" data-ja="キャンセル">取消</button>
+        </div>
+        <form id="subscription-form" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+          <input id="subscription-id" type="hidden">
+          <div class="form-grid">
+            <label><span data-i18n data-en="Linked account (optional)" data-ja="関連アカウント（任意）">关联账号（可选）</span><select id="subscription-account"></select></label>
+            <label><span data-i18n data-en="Service name" data-ja="サービス名">服务名称</span><input id="subscription-service" maxlength="100" required autocomplete="off"></label>
+            <label><span data-i18n data-en="Plan name" data-ja="プラン名">方案名称</span><input id="subscription-plan" maxlength="100" autocomplete="off"></label>
+            <label><span data-i18n data-en="Amount" data-ja="金額">金额</span><input id="subscription-amount" inputmode="decimal" maxlength="32" autocomplete="off"></label>
+            <label><span data-i18n data-en="Currency" data-ja="通貨">货币</span>
+              <select id="subscription-currency" required>
+                <option value="CNY" selected data-i18n data-en="Chinese yuan (CNY)" data-ja="中国人民元（CNY）">人民币（CNY）</option>
+                <option value="USD" data-i18n data-en="US dollar (USD)" data-ja="米ドル（USD）">美元（USD）</option>
+                <option value="EUR" data-i18n data-en="Euro (EUR)" data-ja="ユーロ（EUR）">欧元（EUR）</option>
+                <option value="CAD" data-i18n data-en="Canadian dollar (CAD)" data-ja="カナダドル（CAD）">加拿大元（CAD）</option>
+                <option value="JPY" data-i18n data-en="Japanese yen (JPY)" data-ja="日本円（JPY）">日元（JPY）</option>
+                <option value="GBP" data-i18n data-en="British pound (GBP)" data-ja="英ポンド（GBP）">英镑（GBP）</option>
+                <option value="HKD" data-i18n data-en="Hong Kong dollar (HKD)" data-ja="香港ドル（HKD）">港币（HKD）</option>
+                <option value="AUD" data-i18n data-en="Australian dollar (AUD)" data-ja="オーストラリアドル（AUD）">澳大利亚元（AUD）</option>
+                <option value="CHF" data-i18n data-en="Swiss franc (CHF)" data-ja="スイスフラン（CHF）">瑞士法郎（CHF）</option>
+                <option value="SGD" data-i18n data-en="Singapore dollar (SGD)" data-ja="シンガポールドル（SGD）">新加坡元（SGD）</option>
+                <option value="KRW" data-i18n data-en="South Korean won (KRW)" data-ja="韓国ウォン（KRW）">韩元（KRW）</option>
+                <option value="TWD" data-i18n data-en="New Taiwan dollar (TWD)" data-ja="ニュー台湾ドル（TWD）">新台币（TWD）</option>
+                <option value="__custom__" data-i18n data-en="Other / custom currency" data-ja="その他 / 独自の通貨">其他 / 自定义币种</option>
+              </select>
+            </label>
+            <label id="subscription-custom-currency-label" hidden><span data-i18n data-en="Custom currency code" data-ja="独自の通貨コード">自定义货币代码</span>
+              <input id="subscription-custom-currency" maxlength="12" disabled autocomplete="off"
+                     autocorrect="off" autocapitalize="characters" spellcheck="false"
+                     placeholder="例如 BRL" data-i18n-placeholder
+                     data-placeholder-en="For example, BRL" data-placeholder-ja="例：BRL">
+            </label>
+            <label><span data-i18n data-en="First subscription date" data-ja="初回登録日">首次订阅日期</span><input id="subscription-first-date" type="date" required></label>
+            <label><span data-i18n data-en="Next renewal date" data-ja="次回更新日">下次续费日期</span><input id="subscription-next-date" type="date" required></label>
+            <label><span data-i18n data-en="Cycle count" data-ja="周期の回数">周期数量</span><input id="subscription-cycle-count" type="number" min="1" max="120" value="1" required></label>
+            <label><span data-i18n data-en="Cycle unit" data-ja="周期の単位">周期单位</span><select id="subscription-cycle-unit"><option value="day" data-i18n data-en="Day" data-ja="日">天</option><option value="week" data-i18n data-en="Week" data-ja="週">周</option><option value="month" selected data-i18n data-en="Month" data-ja="月">月</option><option value="year" data-i18n data-en="Year" data-ja="年">年</option></select></label>
+            <label><span data-i18n data-en="Status" data-ja="ステータス">状态</span><select id="subscription-status"><option value="active" data-i18n data-en="Active" data-ja="有効">正常</option><option value="paused" data-i18n data-en="Paused" data-ja="一時停止">暂停</option><option value="cancelled" data-i18n data-en="Canceled" data-ja="解約済み">已取消</option><option value="expired" data-i18n data-en="Expired" data-ja="期限切れ">已到期</option></select></label>
+            <label><span data-i18n data-en="Payment method" data-ja="支払い方法">支付方式</span><input id="subscription-payment" maxlength="100" autocomplete="off"></label>
+            <label><span data-i18n data-en="Remind days in advance" data-ja="事前通知の日数">提前提醒天数</span><input id="subscription-reminder-days" type="number" min="0" max="365" value="7" required></label>
+            <label class="check"><input id="subscription-auto-renew" type="checkbox" checked><span data-i18n data-en="Auto-renew" data-ja="自動更新"> 自动续费</span></label>
+            <label class="check"><input id="subscription-reminder-enabled" type="checkbox" checked><span data-i18n data-en="Enable local reminders" data-ja="端末内の通知を有効化"> 启用本地提醒</span></label>
+          </div>
+          <button type="submit" class="primary" data-i18n data-en="Encrypt and save to phone" data-ja="暗号化してスマートフォンに保存">加密保存到手机</button>
+        </form>
+      </section>
+    </section>
+
+    <section class="notice">
+      <h2 data-i18n data-en="Leaving no data on the computer is a best effort" data-ja="パソコンにデータを残さないための対策には限界があります">电脑端“不留数据”是尽力而为</h2>
+      <p data-i18n data-en="Use a private browsing window to reduce ordinary browsing history and site-data traces, but private browsing cannot guarantee that no traces remain. This page does not use cookies, localStorage, IndexedDB, or service workers, and responses disable caching. Browsers or password managers may still ignore autofill and spell-check preferences. Extensions, screenshots, swap space, crash dumps, and input methods are also outside phone control. Disconnect and close the tab when finished." data-ja="通常の閲覧履歴やサイトデータを減らすため、ブラウザのプライベートウィンドウを使用してください。ただし、痕跡がまったく残らないことを保証するものではありません。このページはCookie、localStorage、IndexedDB、Service Workerを使用せず、応答のキャッシュも禁止します。それでもブラウザやパスワード管理ツールが自動入力やスペルチェックの設定を無視する場合があります。拡張機能、スクリーンショット、スワップ領域、クラッシュダンプ、入力方式もスマートフォンでは制御できません。完了後は切断してタブを閉じてください。">建议使用浏览器的无痕/隐私窗口，以减少常规浏览记录和站点数据残留；但无痕模式不能保证电脑不留痕迹。本页面不使用 Cookie、localStorage、IndexedDB 或 Service Worker，响应也禁止缓存。浏览器或密码管理器仍可能忽略自动填充、拼写检查设置；扩展、截图、系统交换区、崩溃转储和输入法也不受手机控制。完成后请断开并关闭标签页。</p>
+    </section>
+  </main>
+
+  <dialog id="phone-approval-dialog" class="phone-approval-dialog" aria-labelledby="phone-approval-title">
+    <div class="phone-approval-dialog-body">
+      <p class="step">PHONE APPROVAL</p>
+      <h2 id="phone-approval-title" data-i18n data-en="Approve on your phone" data-ja="スマートフォンで承認してください">请在手机批准</h2>
+      <p data-i18n data-en="The request has been sent to Cardock. Pick up your phone and tap Approve this operation in the dialog on the Temporary PC Entry page." data-ja="リクエストをCardockに送信しました。スマートフォンを手に取り、「パソコンから一時入力」ページのダイアログで「今回の操作を承認」を押してください。">请求已发送到 Cardock。请拿起手机，在“电脑临时录入”页面弹出的批准框中点击“批准本次操作”。</p>
+      <p data-i18n data-en="If the vault is locked, unlock the same vault first and submit again from this page." data-ja="保管庫がロックされている場合は、同じ保管庫のロックを解除してから、このページでもう一度送信してください。">如果保险库已锁定，请先解锁同一个保险库，再回到本页重新提交。</p>
+      <button id="phone-approval-dialog-close" type="button" class="primary" data-i18n data-en="Got it, keep waiting" data-ja="確認しました。待機を続ける">知道了，继续等待</button>
+    </div>
+  </dialog>
+  <script src="/app.js" defer></script>
+</body>
+</html>
