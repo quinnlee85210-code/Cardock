@@ -12,6 +12,9 @@ enum RecoveryDeviceSecretFailureReason {
   biometricLockout,
   hardwareUnavailable,
   notEnrolled,
+  devicePasscodeNotSet,
+  deviceAuthenticationUnavailable,
+  legacyRecoveryUnavailable,
   securityUpdateRequired,
   unsupported,
   statusUnknown,
@@ -140,9 +143,11 @@ abstract interface class RecoveryDeviceSecretStore {
 ///
 /// Android keeps this opaque payload behind a dedicated Android Keystore key.
 /// Every write and read is authorized by a fresh BIOMETRIC_STRONG CryptoObject
-/// operation. The payload deliberately contains only a random device secret
-/// and non-secret binding metadata; it never contains vault encryption keys or
-/// human recovery answers.
+/// operation.
+/// iOS uses device authentication (including the device passcode) and a
+/// device-only Keychain ACL, independently of biometric quick unlock.
+/// The payload contains a random device secret and non-secret binding metadata;
+/// it never contains vault encryption keys or human recovery answers.
 final class BiometricRecoveryDeviceSecretStore
     implements RecoveryDeviceSecretStore {
   BiometricRecoveryDeviceSecretStore({
@@ -306,6 +311,12 @@ RecoveryDeviceSecretException _recoveryDeviceSecretException(
       'biometric_vendor_error' =>
         RecoveryDeviceSecretFailureReason.hardwareUnavailable,
       'not_enrolled' => RecoveryDeviceSecretFailureReason.notEnrolled,
+      'passcode_not_set' =>
+        RecoveryDeviceSecretFailureReason.devicePasscodeNotSet,
+      'device_authentication_unavailable' =>
+        RecoveryDeviceSecretFailureReason.deviceAuthenticationUnavailable,
+      'legacy_recovery_unavailable' =>
+        RecoveryDeviceSecretFailureReason.legacyRecoveryUnavailable,
       'biometric_security_update_required' =>
         RecoveryDeviceSecretFailureReason.securityUpdateRequired,
       'biometric_unsupported' => RecoveryDeviceSecretFailureReason.unsupported,

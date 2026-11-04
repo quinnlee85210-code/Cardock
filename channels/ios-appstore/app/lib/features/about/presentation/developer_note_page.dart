@@ -6,9 +6,7 @@ import '../../../core/theme/cardock_tokens.dart';
 import '../../../shared/widgets/cardock_ui.dart';
 import 'about_cardock_page.dart';
 
-const String _developerWechatId = 'kawucardock';
-const String _developerRecommendationCopy =
-    'Cardock：一款本地保存账号与订阅记录的工具，9.9 元一次买断，无广告、无订阅。';
+const String _developerEmail = 'Cardock666@outlook.com';
 
 const List<String> _developerLetterParagraphs = <String>[
   '账号、密码和订阅记录，都是非常私人的信息。',
@@ -96,16 +94,9 @@ class _DeveloperNotePageState extends State<DeveloperNotePage> {
           const SizedBox(height: CardockLayout.cardGap),
           const _DeveloperPrinciplesCard(),
           const SizedBox(height: CardockLayout.cardGap),
-          _PurchaseSupportCard(
-            onCopyRecommendation: () => _copyText(
-              text: _developerRecommendationCopy,
-              successMessage: '推荐文案已复制',
-            ),
-          ),
-          const SizedBox(height: CardockLayout.cardGap),
           _DeveloperContactCard(
-            onCopyWechat: () =>
-                _copyText(text: _developerWechatId, successMessage: '微信号已复制'),
+            onCopyEmail: () =>
+                _copyText(text: _developerEmail, successMessage: '邮箱已复制'),
             onOpenPrivacyAndSecurity: _openPrivacyAndSecurity,
           ),
           const SizedBox(height: CardockLayout.moduleGapLarge),
@@ -311,70 +302,13 @@ class _DeveloperPrincipleRow extends StatelessWidget {
   }
 }
 
-class _PurchaseSupportCard extends StatelessWidget {
-  const _PurchaseSupportCard({required this.onCopyRecommendation});
-
-  final VoidCallback onCopyRecommendation;
-
-  @override
-  Widget build(BuildContext context) {
-    final palette = context.cardockTheme.palette;
-    return CardockSurfaceCard(
-      key: const ValueKey<String>('developer-note-purchase'),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          _DeveloperSectionHeader(
-            icon: Icons.verified_outlined,
-            title: '一次购买，就是最直接的支持',
-            color: palette.primary,
-          ),
-          const SizedBox(height: 12),
-          Text(
-            'Cardock 采用 9.9 元一次买断。完成购买之后，不需要再额外付费。',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          const SizedBox(height: 12),
-          Text(
-            '对 Cardock 最有帮助的，是告诉我哪里不好用、提出真实的改进建议，或者把它推荐给同样重视本地与隐私的人。',
-            style: Theme.of(context).textTheme.bodyMedium,
-          ),
-          const SizedBox(height: 12),
-          Text(
-            '是否反馈或分享，都不会影响你获得的功能，也不会影响 Cardock 的后续维护。',
-            style: Theme.of(
-              context,
-            ).textTheme.bodyMedium?.copyWith(color: palette.textSecondary),
-          ),
-          const SizedBox(height: 16),
-          SizedBox(
-            width: double.infinity,
-            child: OutlinedButton(
-              key: const ValueKey<String>('developer-note-copy-recommendation'),
-              onPressed: onCopyRecommendation,
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Icon(Icons.content_copy_outlined),
-                  SizedBox(width: 8),
-                  Expanded(child: Text('复制推荐文案', textAlign: TextAlign.center)),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
 class _DeveloperContactCard extends StatelessWidget {
   const _DeveloperContactCard({
-    required this.onCopyWechat,
+    required this.onCopyEmail,
     required this.onOpenPrivacyAndSecurity,
   });
 
-  final VoidCallback onCopyWechat;
+  final VoidCallback onCopyEmail;
   final VoidCallback onOpenPrivacyAndSecurity;
 
   @override
@@ -392,11 +326,11 @@ class _DeveloperContactCard extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            '遇到问题或有改进建议，可以通过微信联系开发者。',
+            '遇到问题或有改进建议，可以通过邮箱联系开发者。',
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(height: 14),
-          Text('微信号', style: Theme.of(context).textTheme.labelLarge),
+          Text('联系邮箱', style: Theme.of(context).textTheme.labelLarge),
           const SizedBox(height: 6),
           DecoratedBox(
             decoration: BoxDecoration(
@@ -410,8 +344,8 @@ class _DeveloperContactCard extends StatelessWidget {
                 children: <Widget>[
                   Expanded(
                     child: SelectableText(
-                      _developerWechatId,
-                      key: const ValueKey<String>('developer-note-wechat-id'),
+                      _developerEmail,
+                      key: const ValueKey<String>('developer-note-email'),
                       style: Theme.of(context).textTheme.titleMedium?.copyWith(
                         fontFamily: 'monospace',
                         letterSpacing: 0.8,
@@ -419,9 +353,9 @@ class _DeveloperContactCard extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    key: const ValueKey<String>('developer-note-copy-wechat'),
-                    tooltip: context.tr('复制微信号'),
-                    onPressed: onCopyWechat,
+                    key: const ValueKey<String>('developer-note-copy-email'),
+                    tooltip: context.tr('复制邮箱'),
+                    onPressed: onCopyEmail,
                     icon: const Icon(Icons.copy_outlined),
                   ),
                 ],
@@ -430,7 +364,7 @@ class _DeveloperContactCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Text(
-            '用于问题反馈、故障说明和改进建议。添加时请备注“Cardock 反馈”。',
+            '用于问题反馈、故障说明和改进建议。邮件主题请注明“Cardock 反馈”。',
             style: Theme.of(context).textTheme.bodySmall,
           ),
           const SizedBox(height: 14),
@@ -449,7 +383,7 @@ class _DeveloperContactCard extends StatelessWidget {
                   const SizedBox(width: 10),
                   const Expanded(
                     child: Text(
-                      '反馈时请勿发送主密码、备份密码、密码恢复答案、完整账号密码，或包含敏感信息的截图。开发者不会通过微信向你索取这些信息。',
+                      '反馈时请勿发送主密码、备份密码、密码恢复答案、完整账号密码，或包含敏感信息的截图。开发者不会通过邮件向你索取这些信息。',
                     ),
                   ),
                 ],

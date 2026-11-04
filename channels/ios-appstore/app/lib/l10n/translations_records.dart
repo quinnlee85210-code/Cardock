@@ -282,6 +282,8 @@ const Map<String, String> recordsEnglishTranslations = <String, String>{
       'Recovery never shows the old password. It resets a vault password only after the correct three security questions are selected and strong system authentication succeeds on this device.',
   '两次输入的新密码不一致。': 'The new passwords do not match.',
   '旧密码不会被显示': 'The old password will not be shown',
+  '下方会显示你设置的三道问题。填写答案后，可通过设备锁屏密码或面容 ID／触控 ID 验证；无需开启生物识别。成功后会生成全新数据密钥并重设密码。':
+      'The three questions you chose are shown below. Enter their answers and authenticate with the device passcode, Face ID or Touch ID; biometric enrollment is not required. Success creates a new data key and resets the password.',
   '下方会直接显示你设置时选择的三道问题。请填写对应答案，再通过本机指纹或安全级人脸。成功后会生成全新数据密钥并重设密码。':
       'The three questions you chose during setup are shown below. Enter their answers, then pass fingerprint or secure face authentication on this device. Success creates a new data key and resets the password.',
   '此入口有多组已配置的密保问题。请选择要回答的一组；页面不会标明它对应哪个保险库。':
@@ -800,6 +802,8 @@ const Map<String, String> recordsJapaneseTranslations = <String, String>{
       '復旧で以前のパスワードが表示されることはありません。正しい3つの秘密の質問を選び、この端末の強力なシステム認証に成功した場合にのみ、保管庫のパスワードを再設定します。',
   '两次输入的新密码不一致。': '新しいパスワードが一致しません。',
   '旧密码不会被显示': '以前のパスワードは表示されません',
+  '下方会显示你设置的三道问题。填写答案后，可通过设备锁屏密码或面容 ID／触控 ID 验证；无需开启生物识别。成功后会生成全新数据密钥并重设密码。':
+      '設定した3つの質問が下に表示されます。答えを入力し、端末のパスコード、Face IDまたはTouch IDで本人確認してください。生体認証の登録は不要です。成功すると新しいデータキーを生成してパスワードを再設定します。',
   '下方会直接显示你设置时选择的三道问题。请填写对应答案，再通过本机指纹或安全级人脸。成功后会生成全新数据密钥并重设密码。':
       '設定時に選んだ3つの質問が下に表示されます。対応する答えを入力し、この端末の指紋認証または安全な顔認証を完了してください。成功すると、新しいデータキーを生成してパスワードを再設定します。',
   '此入口有多组已配置的密保问题。请选择要回答的一组；页面不会标明它对应哪个保险库。':

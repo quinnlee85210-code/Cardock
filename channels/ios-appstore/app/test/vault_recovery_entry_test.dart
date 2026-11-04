@@ -8,6 +8,29 @@ import 'support/fake_vault_store.dart';
 const _testMasterPassword = 'TEST-ONLY-MASTER-1234';
 
 void main() {
+  testWidgets(
+    'iOS recovery screen permits device passcode without biometric enrollment',
+    (tester) async {
+      await _pumpLockedRecoveryApp(
+        tester,
+        entryMode: VaultRecoveryEntryMode.visible,
+      );
+      final entry = find.byKey(
+        const ValueKey<String>('visible-vault-recovery-entry'),
+      );
+      await tester.ensureVisible(entry);
+      await tester.tap(entry);
+      await tester.pumpAndSettle();
+      expect(find.textContaining('无需开启生物识别'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey<String>('submit-vault-recovery')),
+        findsOneWidget,
+      );
+      await tester.pumpWidget(const SizedBox.shrink());
+    },
+    variant: TargetPlatformVariant.only(TargetPlatform.iOS),
+  );
+
   testWidgets('visible模式显示忘记密码入口并可打开恢复页', (tester) async {
     await _pumpLockedRecoveryApp(
       tester,

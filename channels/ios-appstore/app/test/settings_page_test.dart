@@ -27,6 +27,55 @@ import 'support/recording_reminder_scheduler.dart';
 const _testMasterPassword = 'TEST-ONLY-MASTER-1234';
 
 void main() {
+  testWidgets(
+    'iOS recovery setup keeps master-password authorization and explains device passcode',
+    (tester) async {
+      await tester.binding.setSurfaceSize(const Size(900, 1800));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      final state = await _unlockedState(
+        FakeVaultStore(configured: true, acceptedPassword: _testMasterPassword),
+        RecordingReminderScheduler(),
+      );
+      addTearDown(state.dispose);
+      await tester.pumpWidget(_testApp(state));
+      final tile = find.byKey(
+        const ValueKey<String>('password-recovery-setting'),
+      );
+      await tester.scrollUntilVisible(
+        tile,
+        240,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.tap(tile);
+      await tester.pumpAndSettle();
+      expect(find.text('验证真实保险库'), findsOneWidget);
+      expect(
+        find.byKey(const ValueKey<String>('confirm-recovery-setup')),
+        findsNothing,
+      );
+      await tester.enterText(find.byType(TextField), _testMasterPassword);
+      await tester.tap(find.text('继续'));
+      await tester.pumpAndSettle();
+      expect(find.textContaining('无需开启生物识别'), findsOneWidget);
+      for (var i = 0; i < 3; i++) {
+        await tester.enterText(
+          find.byKey(ValueKey<String>('recovery-setup-answer-$i')),
+          'TEST ONLY answer $i',
+        );
+        await tester.enterText(
+          find.byKey(ValueKey<String>('recovery-setup-confirm-$i')),
+          'TEST ONLY answer $i',
+        );
+      }
+      await tester.tap(
+        find.byKey(const ValueKey<String>('confirm-recovery-setup')),
+      );
+      await tester.pumpAndSettle();
+      expect(state.primaryRecoveryConfigured, isTrue);
+    },
+    variant: TargetPlatformVariant.only(TargetPlatform.iOS),
+  );
+
   testWidgets('诱饵完整会话设置不泄露角色且不能导出正式便携备份', (tester) async {
     final state = AppState(
       vaultStore: const _ScopedTestVaultStore(
@@ -234,7 +283,7 @@ void main() {
     await tester.tap(find.byKey(const ValueKey<String>('about-cardock-entry')));
     await tester.pumpAndSettle();
     expect(find.text('关于 Cardock'), findsOneWidget);
-    expect(find.text('版本 1.0.0'), findsOneWidget);
+    expect(find.text('版本 1.0.1'), findsOneWidget);
     expect(find.textContaining('不会申请通讯录、位置、外部存储或媒体读取权限'), findsOneWidget);
     expect(find.textContaining('不会扫描设备上的其他文件'), findsOneWidget);
     expect(find.textContaining('INTERNET 权限仅用于'), findsOneWidget);
@@ -290,12 +339,12 @@ void main() {
     );
     await tester.pumpAndSettle();
     expect(find.text('联系与反馈'), findsOneWidget);
-    expect(find.text('kawucardock'), findsOneWidget);
+    expect(find.text('Cardock666@outlook.com'), findsOneWidget);
     expect(
-      find.byKey(const ValueKey<String>('developer-note-copy-wechat')),
+      find.byKey(const ValueKey<String>('developer-note-copy-email')),
       findsOneWidget,
     );
-    expect(find.textContaining('开发者不会通过微信向你索取这些信息'), findsOneWidget);
+    expect(find.textContaining('开发者不会通过邮件向你索取这些信息'), findsOneWidget);
     expect(find.text('微信赞赏码'), findsNothing);
     expect(find.text('支付宝收款码'), findsNothing);
     expect(find.textContaining('¥6 / ¥18 / ¥66'), findsNothing);

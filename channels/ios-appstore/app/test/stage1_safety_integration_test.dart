@@ -352,11 +352,55 @@ void main() {
   VaultRebuildService service(
     RebuildNative platform, {
     Future<void> Function(String)? after,
+    bool requiresTypedConfirmation = true,
   }) => VaultRebuildService(
     directory: () async => directory,
     platform: platform,
     reminders: const NoopReminderScheduler(),
     afterStep: after,
+    requiresTypedConfirmation: requiresTypedConfirmation,
+  );
+  test(
+    'iOS direct reset requires secured native permission and preserves data on denial',
+    () async {
+      await seed();
+      final before = directory.listSync().map((e) => e.path).toSet();
+      final native = RebuildNative();
+      final direct = service(native, requiresTypedConfirmation: false);
+      expect(
+        await direct.commit(
+          authorization: const RebuildAuthorization('x', unsecured: true),
+          phrase: '',
+        ),
+        false,
+      );
+      expect(native.consumed, 0);
+      native.allowed = false;
+      expect(
+        await direct.commit(
+          authorization: const RebuildAuthorization('x', unsecured: false),
+          phrase: '',
+        ),
+        false,
+      );
+      expect(native.consumed, 1);
+      expect(native.cleared, false);
+      expect(directory.listSync().map((e) => e.path).toSet(), before);
+      native.allowed = true;
+      expect(
+        await direct.commit(
+          authorization: const RebuildAuthorization('x', unsecured: false),
+          phrase: '',
+        ),
+        true,
+      );
+      expect(native.cleared, true);
+      expect(directory.listSync(), hasLength(4));
+      expect(
+        await File('${directory.path}/outside.asmbackup').readAsString(),
+        'TEST-ONLY-PRESERVE-CHECK',
+      );
+    },
   );
   test(
     'cancelled auth or wrong phrase writes nothing and retains every item',

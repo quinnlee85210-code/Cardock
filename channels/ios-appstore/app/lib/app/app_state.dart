@@ -3046,6 +3046,11 @@ final class AppState extends ChangeNotifier {
       final throttleReset = recoveredPrimary
           ? await _resetUnlockFailures()
           : true;
+      if (!_isCurrent(epoch)) {
+        recovered.session.close();
+        recovered = null;
+        return false;
+      }
       _quickUnlockEnabled = false;
       _quickUnlockScope = null;
       final result = recovered;
@@ -3457,6 +3462,9 @@ final class AppState extends ChangeNotifier {
     }
   }
 
+  bool get rebuildRequiresTypedConfirmation =>
+      _rebuildService?.requiresTypedConfirmation ?? true;
+
   Future<RebuildAuthorization?> authorizeRebuild(
     String title,
     String message,
@@ -3470,14 +3478,23 @@ final class AppState extends ChangeNotifier {
     }
   }
 
-  Future<void> beginRebuildHold(RebuildAuthorization value) async {
-    if (_vaultPhase == VaultPhase.locked) {
-      await _rebuildService?.platform.beginHold(value.token);
+  Future<bool> beginRebuildHold(RebuildAuthorization value) async {
+    final service = _rebuildService;
+    if (_vaultPhase != VaultPhase.locked || service == null) return false;
+    try {
+      await service.platform.beginHold(value.token);
+      return true;
+    } on Object {
+      return false;
     }
   }
 
   Future<void> cancelRebuildHold(RebuildAuthorization value) async {
-    await _rebuildService?.platform.cancelHold(value.token);
+    try {
+      await _rebuildService?.platform.cancelHold(value.token);
+    } on Object {
+      // A failed cancellation never marks the hold as completed in the UI.
+    }
   }
 
   Future<bool> rebuildLocalVault({
@@ -5397,6 +5414,20 @@ final class AppState extends ChangeNotifier {
 String _recoveryDeviceErrorMessage(RecoveryDeviceSecretException error) =>
     switch (error.reason) {
       RecoveryDeviceSecretFailureReason.userCanceled => '已取消本机系统强认证，密码恢复未执行。',
+      RecoveryDeviceSecretFailureReason.authInProgress =>
+        '上一次系统验证仍在结束，请稍后重试；原密码和保险库数据未修改。',
+      RecoveryDeviceSecretFailureReason.storageError =>
+        '本机恢复密钥暂时无法访问，密保操作未完成；原密码和保险库数据未修改。',
+      RecoveryDeviceSecretFailureReason.lifecycleCanceled ||
+      RecoveryDeviceSecretFailureReason.activityUnavailable =>
+        '系统验证已中断，密保操作未完成。请保持应用在前台重试。',
+      RecoveryDeviceSecretFailureReason.timeout => '系统验证已超时，密保操作未完成。请重新发起验证。',
+      RecoveryDeviceSecretFailureReason.devicePasscodeNotSet =>
+        '本机未设置设备锁屏密码，无法保护密保密钥。请先设置设备锁屏密码；无需开启面容 ID 或触控 ID。',
+      RecoveryDeviceSecretFailureReason.deviceAuthenticationUnavailable =>
+        '本机设备身份验证未完成，密保设置或恢复未执行。可使用设备锁屏密码重试。',
+      RecoveryDeviceSecretFailureReason.legacyRecoveryUnavailable =>
+        '旧版密保密钥仍受原生物识别保护，暂时无法读取。请使用原密码进入设置，关闭本机所有已配置的密保后再重新设置；业务数据不会因此删除。',
       RecoveryDeviceSecretFailureReason.notEnrolled =>
         '本机尚未录入可用的强指纹或安全级人脸，不能启用或使用密码恢复。',
       RecoveryDeviceSecretFailureReason.temporaryLockout ||

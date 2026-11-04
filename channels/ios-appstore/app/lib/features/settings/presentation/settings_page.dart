@@ -1815,8 +1815,10 @@ class _RecoverySetupDialogState extends State<_RecoverySetupDialog> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const Text(
-                  '恢复不会显示旧密码。每次恢复都必须同时答对三题，并通过本机指纹或安全级人脸。请使用只有你知道且长期稳定的答案；两套保险库的三道问题组合不能完全相同。',
+                Text(
+                  defaultTargetPlatform == TargetPlatform.iOS
+                      ? '恢复不会显示旧密码。每次恢复都需答对三题，并通过设备锁屏密码或面容 ID／触控 ID 验证；无需开启生物识别。请使用只有你知道且长期稳定的答案；两套保险库的三道问题组合不能完全相同。'
+                      : '恢复不会显示旧密码。每次恢复都必须同时答对三题，并通过本机指纹或安全级人脸。请使用只有你知道且长期稳定的答案；两套保险库的三道问题组合不能完全相同。',
                 ),
                 const SizedBox(height: 16),
                 for (var index = 0; index < 3; index++) ...[

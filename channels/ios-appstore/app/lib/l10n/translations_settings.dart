@@ -68,6 +68,10 @@ _settingsTranslations = <String, _SettingsTranslation>{
     en: 'Not configured · Separate set of three security questions + strong system authentication on this device',
     ja: '未設定 · 独立した3つの秘密の質問 + 端末の強力なシステム認証',
   ),
+  '恢复不会显示旧密码。每次恢复都需答对三题，并通过设备锁屏密码或面容 ID／触控 ID 验证；无需开启生物识别。请使用只有你知道且长期稳定的答案；两套保险库的三道问题组合不能完全相同。': (
+    en: 'Recovery never reveals the old password. Answer all three questions and authenticate with the device passcode, Face ID or Touch ID; biometric enrollment is not required. Use answers known only to you and stable over time. The two vaults cannot use exactly the same set of three questions.',
+    ja: '復旧で以前のパスワードは表示されません。3問すべてに正しく答え、端末のパスコード、Face IDまたはTouch IDで本人確認してください。生体認証の登録は不要です。自分だけが知り、長期間変わらない答えを使用してください。2つの保管庫で同じ3つの質問の組み合わせは使用できません。',
+  ),
   '恢复不会显示旧密码。每次恢复都必须同时答对三题，并通过本机指纹或安全级人脸。请使用只有你知道且长期稳定的答案；两套保险库的三道问题组合不能完全相同。': (
     en: 'Recovery never reveals the old password. Every recovery attempt requires all three correct answers plus fingerprint or secure face authentication on this device. Use answers known only to you and stable over time. The two vaults cannot use exactly the same set of three questions.',
     ja: '復旧で以前のパスワードが表示されることはありません。復旧のたびに3問すべてへ正しく答え、この端末の指紋または安全な顔認証を完了する必要があります。自分だけが知り、長期間変わらない答えを使用してください。2つの保管庫で、まったく同じ3つの質問の組み合わせは使用できません。',
@@ -293,49 +297,27 @@ _settingsTranslations = <String, _SettingsTranslation>{
     en: 'A CN¥9.9 one-time purchase, with no subscriptions, automatic renewals, ads, or commercial tracking based on your data.',
     ja: 'CN¥9.9の買い切りで、サブスクリプション、自動更新、広告、ユーザーデータに基づく商用トラッキングは設けません。',
   ),
-  '一次购买，就是最直接的支持': (
-    en: 'A one-time purchase is the most direct support',
-    ja: '一度の購入が、最も直接的な支えになります',
-  ),
-  'Cardock 采用 9.9 元一次买断。完成购买之后，不需要再额外付费。': (
-    en: 'Cardock is a CN¥9.9 one-time purchase. Once purchased, no additional payment is required.',
-    ja: 'CardockはCN¥9.9の買い切りです。購入後に追加料金は必要ありません。',
-  ),
-  '对 Cardock 最有帮助的，是告诉我哪里不好用、提出真实的改进建议，或者把它推荐给同样重视本地与隐私的人。': (
-    en: 'The most helpful things you can do are tell me what is difficult to use, share genuine improvement ideas, or recommend Cardock to someone who also values on-device tools and privacy.',
-    ja: 'Cardockにとって最も助けになるのは、使いにくい点や率直な改善案を伝えていただくこと、または端末内保存とプライバシーを大切にする方へ紹介していただくことです。',
-  ),
-  '是否反馈或分享，都不会影响你获得的功能，也不会影响 Cardock 的后续维护。': (
-    en: 'Whether or not you send feedback or share Cardock will not affect the features you receive or Cardock’s continued maintenance.',
-    ja: 'フィードバックや紹介をするかどうかで、利用できる機能やCardockの今後の保守が変わることはありません。',
-  ),
   '联系与反馈': (en: 'Contact and feedback', ja: 'お問い合わせとフィードバック'),
-  '遇到问题或有改进建议，可以通过微信联系开发者。': (
-    en: 'If you encounter a problem or have an improvement idea, you can contact the developer on WeChat.',
-    ja: '問題が発生した場合や改善案がある場合は、WeChatで開発者に連絡できます。',
+  '遇到问题或有改进建议，可以通过邮箱联系开发者。': (
+    en: 'If you encounter a problem or have an improvement idea, you can contact the developer by email.',
+    ja: '問題が発生した場合や改善案がある場合は、メールで開発者に連絡できます。',
   ),
-  '微信号': (en: 'WeChat ID', ja: 'WeChat ID'),
-  '用于问题反馈、故障说明和改进建议。添加时请备注“Cardock 反馈”。': (
-    en: 'For problem reports, troubleshooting details, and improvement suggestions. When adding the contact, include “Cardock feedback” in your note.',
-    ja: '問題報告、不具合の説明、改善提案にご利用ください。追加時のメモには「Cardock feedback」と記載してください。',
+  '联系邮箱': (en: 'Contact email', ja: '連絡先メールアドレス'),
+  '用于问题反馈、故障说明和改进建议。邮件主题请注明“Cardock 反馈”。': (
+    en: 'For problem reports, troubleshooting details, and improvement suggestions. Please include “Cardock feedback” in the email subject.',
+    ja: '問題報告、不具合の説明、改善提案にご利用ください。メールの件名に「Cardock feedback」と記載してください。',
   ),
-  '反馈时请勿发送主密码、备份密码、密码恢复答案、完整账号密码，或包含敏感信息的截图。开发者不会通过微信向你索取这些信息。': (
-    en: 'Do not send your master password, backup password, password-recovery answers, complete account credentials, or screenshots containing sensitive information. The developer will never ask for this information over WeChat.',
-    ja: 'マスターパスワード、バックアップ用パスワード、パスワード復旧の回答、完全なアカウント認証情報、機密情報を含むスクリーンショットは送らないでください。開発者がWeChatでこれらの情報を求めることはありません。',
+  '反馈时请勿发送主密码、备份密码、密码恢复答案、完整账号密码，或包含敏感信息的截图。开发者不会通过邮件向你索取这些信息。': (
+    en: 'Do not send your master password, backup password, password-recovery answers, complete account credentials, or screenshots containing sensitive information. The developer will never ask for this information by email.',
+    ja: 'マスターパスワード、バックアップ用パスワード、パスワード復旧の回答、完全なアカウント認証情報、機密情報を含むスクリーンショットは送らないでください。開発者がメールでこれらの情報を求めることはありません。',
   ),
-  '复制微信号': (en: 'Copy WeChat ID', ja: 'WeChat IDをコピー'),
-  '微信号已复制': (en: 'WeChat ID copied', ja: 'WeChat IDをコピーしました'),
+  '复制邮箱': (en: 'Copy email', ja: 'メールアドレスをコピー'),
+  '邮箱已复制': (en: 'Email copied', ja: 'メールアドレスをコピーしました'),
   '复制失败，请稍后重试': (
     en: 'Could not copy. Please try again later.',
     ja: 'コピーできませんでした。しばらくしてからもう一度お試しください。',
   ),
   '隐私与安全说明': (en: 'Privacy and security information', ja: 'プライバシーとセキュリティ'),
-  '复制推荐文案': (en: 'Copy recommendation', ja: '紹介文をコピー'),
-  'Cardock：一款本地保存账号与订阅记录的工具，9.9 元一次买断，无广告、无订阅。': (
-    en: 'Cardock is an on-device tool for keeping account and subscription records. It is a CN¥9.9 one-time purchase, with no ads or subscription fees.',
-    ja: 'Cardockは、アカウントとサブスクリプションの記録を端末内に保存するツールです。CN¥9.9の買い切りで、広告もサブスクリプション料金もありません。',
-  ),
-  '推荐文案已复制': (en: 'Recommendation copied', ja: '紹介文をコピーしました'),
   '谢谢你愿意使用 Cardock。': (
     en: 'Thank you for using Cardock.',
     ja: 'Cardockを使っていただき、ありがとうございます。',

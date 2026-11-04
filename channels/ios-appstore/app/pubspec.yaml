@@ -1,7 +1,7 @@
 name: account_subscription_manager
 description: "本地账号与订阅记录工具"
 publish_to: 'none'
-version: 1.0.0+75
+version: 1.0.1+92
 
 environment:
   sdk: ^3.12.2

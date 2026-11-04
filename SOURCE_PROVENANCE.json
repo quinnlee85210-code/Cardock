@@ -27,19 +27,23 @@
       }
     },
     "ios-appstore": {
-      "version": "1.0.0+75",
-      "sourceCommit": "246fd6628a3efec23bd28fb998602c2a7b90aa1c",
-      "sourceTree": "f81f51023d8c98f6001ab20d43c2f20399c60dc2",
+      "version": "1.0.1+92",
+      "sourceCommit": "9dbf08b1d924d5198cbc214abcc219dec4f9bdf9",
+      "sourceTree": "2844809daaaaccd834b0e29b968385d76dea505d",
+      "appStoreStatus": "waiting_for_review",
+      "appStoreStatusMeaning": "Submitted to App Store review and waiting for review; not yet publicly released.",
+      "currentPublicAppStoreVersion": "1.0.0",
       "export": {
         "exportMethod": "git_cat_file_raw_blobs",
-        "rawBlobCount": 1417,
-        "rawBlobBytes": 13576125,
+        "rawBlobCount": 1421,
+        "rawBlobBytes": 13695642,
         "rawBlobObjectHashesVerified": true
-      }
+      },
+      "reviewSubmittedDate": "2026-11-04"
     }
   },
   "originalHistoryIncluded": false,
-  "sourceFileCount": 4153,
+  "sourceFileCount": 4157,
   "adaptations": [
     {
       "path": "channels/android-play/app/android/app/build.gradle.kts",
@@ -25745,10 +25749,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner.xcodeproj/project.pbxproj": {
-      "sha256": "eb6eb252c0f1f09dcfcc4cecacd4103911eb05b9280988379746bc9dbd0acde0",
-      "originalSha256": "eb6eb252c0f1f09dcfcc4cecacd4103911eb05b9280988379746bc9dbd0acde0",
-      "originalGitBlob": "93d2aede8141b2e86ad45f9a888c14efecabb312",
-      "bytes": 30639,
+      "sha256": "014433558fb556e9e9c489843c3e2d151f86c9f863ab0388589bf44338d0bb93",
+      "originalSha256": "014433558fb556e9e9c489843c3e2d151f86c9f863ab0388589bf44338d0bb93",
+      "originalGitBlob": "d8719b14369013c3363bb1afee4b83c1ea6ebcf6",
+      "bytes": 31159,
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata": {
@@ -25801,10 +25805,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/AppDelegate.swift": {
-      "sha256": "a1fafe72b0f23592887fc7650ec7a678327e635c84ddb6cdcfd66b1285c5e1ab",
-      "originalSha256": "a1fafe72b0f23592887fc7650ec7a678327e635c84ddb6cdcfd66b1285c5e1ab",
-      "originalGitBlob": "7fece21ae3cefa468207a79ef43c9b7a782f2167",
-      "bytes": 12373,
+      "sha256": "64221660db556aaf7c01cb2552dc21dc8673170f6fee98bd18d6905499b98a7e",
+      "originalSha256": "64221660db556aaf7c01cb2552dc21dc8673170f6fee98bd18d6905499b98a7e",
+      "originalGitBlob": "b4a323ae554cc53670d1ee46062760efe853006a",
+      "bytes": 12511,
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/Assets.xcassets/AppIcon.appiconset/Cardock.png": {
@@ -26074,10 +26078,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/CardockBiometricSecretBridge.swift": {
-      "sha256": "f8f9b52c72434f3beea7c01fbd7d1a86c45c1b29f99d42edcbb91fd6770fd240",
-      "originalSha256": "f8f9b52c72434f3beea7c01fbd7d1a86c45c1b29f99d42edcbb91fd6770fd240",
-      "originalGitBlob": "2c07e1a5cdda3aaaba797881d538261e08067eb6",
-      "bytes": 8994,
+      "sha256": "3b4c5c052539ce1cdf3d70c8edd37c9a9ab7d09b02755fd9e5a36b8c768c8968",
+      "originalSha256": "3b4c5c052539ce1cdf3d70c8edd37c9a9ab7d09b02755fd9e5a36b8c768c8968",
+      "originalGitBlob": "5bceccd9df43698bafab6f652146ffd03204e198",
+      "bytes": 21908,
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/CardockCoreBridge.swift": {
@@ -26102,10 +26106,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/Info.plist": {
-      "sha256": "6f7f9d759a280ca4113ee100ad510634fef0c859d3d2f9bcc35b6a3e8f4285ab",
-      "originalSha256": "6f7f9d759a280ca4113ee100ad510634fef0c859d3d2f9bcc35b6a3e8f4285ab",
-      "originalGitBlob": "662227cee5101fe951d666919087ca034a8d5f50",
-      "bytes": 2594,
+      "sha256": "336df589c5d97e070c4422d7eff165fea052a4ebf70e7e08da108848f5693866",
+      "originalSha256": "336df589c5d97e070c4422d7eff165fea052a4ebf70e7e08da108848f5693866",
+      "originalGitBlob": "2bd0ab5d48c935f815e74f06e9f8fbaeed4ebcd1",
+      "bytes": 2616,
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/PrivacyInfo.xcprivacy": {
@@ -26130,10 +26134,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/en.lproj/InfoPlist.strings": {
-      "sha256": "f1a12a3590d558f30f91313c56c64d07989de5e6e213f30d4303a58b36bc0b6c",
-      "originalSha256": "f1a12a3590d558f30f91313c56c64d07989de5e6e213f30d4303a58b36bc0b6c",
-      "originalGitBlob": "eed0eaf1eed2c85ee9a5199210aa424a1b1a1fd9",
-      "bytes": 245,
+      "sha256": "966aa8c3f8b64c16ca817b629fcb90e3b5cfdec617b78d0a089033b02ddba8ef",
+      "originalSha256": "966aa8c3f8b64c16ca817b629fcb90e3b5cfdec617b78d0a089033b02ddba8ef",
+      "originalGitBlob": "b7295eccd56af53e4fd06ed052fe42df855bb882",
+      "bytes": 298,
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/en.lproj/Localizable.strings": {
@@ -26144,10 +26148,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/ja.lproj/InfoPlist.strings": {
-      "sha256": "e42116e7f2e957c05686ee1fe18ad775b5b9689488fcb831e987fa6453d7b929",
-      "originalSha256": "e42116e7f2e957c05686ee1fe18ad775b5b9689488fcb831e987fa6453d7b929",
-      "originalGitBlob": "416188c7beea288a83810572dad60452b2b6b889",
-      "bytes": 297,
+      "sha256": "0fd098c3d8395d3d4744c97652633c17dba46a6634224f62d006caed1bc8f7af",
+      "originalSha256": "0fd098c3d8395d3d4744c97652633c17dba46a6634224f62d006caed1bc8f7af",
+      "originalGitBlob": "d4cb2374a617ca53fc1cb39bcb00e3c7f2af890c",
+      "bytes": 387,
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/ja.lproj/Localizable.strings": {
@@ -26158,10 +26162,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/zh-Hans.lproj/InfoPlist.strings": {
-      "sha256": "912a0c514ccd5eebb90b3c0c06fb8dfbda0a92eefeb1e49e6a95be61c3dfa478",
-      "originalSha256": "912a0c514ccd5eebb90b3c0c06fb8dfbda0a92eefeb1e49e6a95be61c3dfa478",
-      "originalGitBlob": "9aa20afe0e045146a39e93919ecdcc874a5045a9",
-      "bytes": 223,
+      "sha256": "f8d8fb1e4a1bb82ebd95e086df4ca3f8110101a0228cdf72c290b8f8e001af4a",
+      "originalSha256": "f8d8fb1e4a1bb82ebd95e086df4ca3f8110101a0228cdf72c290b8f8e001af4a",
+      "originalGitBlob": "b17628b54e2c392b44178f7c185fa2ead0ad896d",
+      "bytes": 285,
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/Runner/zh-Hans.lproj/Localizable.strings": {
@@ -26179,10 +26183,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/ios/RunnerTests/RunnerTests.swift": {
-      "sha256": "30686f6fbd364abb33ecab0f603da244538abf44e78c6c465d86fcf5a03b117a",
-      "originalSha256": "30686f6fbd364abb33ecab0f603da244538abf44e78c6c465d86fcf5a03b117a",
-      "originalGitBlob": "90a958288990a57c9f39040db8aef42ce9021287",
-      "bytes": 17323,
+      "sha256": "7a14a59e66a1a9582a032782f16ea3cf6786c41e2aa7e56048df09327fe0945f",
+      "originalSha256": "7a14a59e66a1a9582a032782f16ea3cf6786c41e2aa7e56048df09327fe0945f",
+      "originalGitBlob": "64beb9f7452145a99b8ade2389df14bbc4ee5d35",
+      "bytes": 67949,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/app/account_subscription_app.dart": {
@@ -26193,10 +26197,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/app/app_state.dart": {
-      "sha256": "832f3d287a80101769b5e2934b72fcfd87441980237351644841ec79f38e8830",
-      "originalSha256": "832f3d287a80101769b5e2934b72fcfd87441980237351644841ec79f38e8830",
-      "originalGitBlob": "05f6bfe6cca134e961273c9fb258948d3993dd15",
-      "bytes": 195147,
+      "sha256": "5214326bd16f54d320a18267c36a9e8f9f6a40f6092f998de3a775660398be35",
+      "originalSha256": "5214326bd16f54d320a18267c36a9e8f9f6a40f6092f998de3a775660398be35",
+      "originalGitBlob": "9b20f594583194c6f9e36f59f2d80cf7ce2b16ef",
+      "bytes": 196965,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/app/navigation/app_destination.dart": {
@@ -26228,10 +26232,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/core/app_metadata.dart": {
-      "sha256": "dc152457ccc577a6d045028e65768354c836945edc785c0a567214b68792109c",
-      "originalSha256": "dc152457ccc577a6d045028e65768354c836945edc785c0a567214b68792109c",
-      "originalGitBlob": "45a05258c8e4012994a414d45c832a0ec796ac63",
-      "bytes": 236,
+      "sha256": "35163d38ac937163c1a5b24a12c574b74e04f7ee7a39ead4be3be74ccaabe026",
+      "originalSha256": "35163d38ac937163c1a5b24a12c574b74e04f7ee7a39ead4be3be74ccaabe026",
+      "originalGitBlob": "994717516945ad5cd522faf1310d0e598c0b95ad",
+      "bytes": 263,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/core/branding/brand_catalog.dart": {
@@ -26655,10 +26659,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/core/security/recovery_device_secret.dart": {
-      "sha256": "c1211de60854602dad1aff6bd7de4fdeb3e0037a9623134d8ab26d5daabd3601",
-      "originalSha256": "c1211de60854602dad1aff6bd7de4fdeb3e0037a9623134d8ab26d5daabd3601",
-      "originalGitBlob": "a78fd2e1a227e6bf96a0642c9d3908d5c76147f8",
-      "bytes": 11181,
+      "sha256": "91b963114ec77df8e85c84a565aa63cf8b7fc43f88950e613071c2472f86d216",
+      "originalSha256": "91b963114ec77df8e85c84a565aa63cf8b7fc43f88950e613071c2472f86d216",
+      "originalGitBlob": "232f3b7593333c3bc3ccbdbee0fd0442e664a4fc",
+      "bytes": 11715,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/core/security/subscription_metadata_migration.dart": {
@@ -26781,10 +26785,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/core/storage/vault_rebuild_service.dart": {
-      "sha256": "10b2e67312b499fb06baec6daa79fb8edcd2184b851832b161c0d556d05d6bad",
-      "originalSha256": "10b2e67312b499fb06baec6daa79fb8edcd2184b851832b161c0d556d05d6bad",
-      "originalGitBlob": "5b0854c2332ed1f9b8a900918cf7bf37827380fe",
-      "bytes": 6627,
+      "sha256": "cec7c19b3f48c09e244c2a7519bb707a47c27b02c29c8a48cf8c645c8a739d83",
+      "originalSha256": "cec7c19b3f48c09e244c2a7519bb707a47c27b02c29c8a48cf8c645c8a739d83",
+      "originalGitBlob": "5a6f2441efe07470376b58dbf037f4cefa834a00",
+      "bytes": 6856,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/core/storage/vault_recovery_journal.dart": {
@@ -26928,17 +26932,17 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/features/about/presentation/about_cardock_page.dart": {
-      "sha256": "7f0316b06598e5eb1e5ce3e904040dfd38992ea30834b2f3e1e0be55fcf8de04",
-      "originalSha256": "7f0316b06598e5eb1e5ce3e904040dfd38992ea30834b2f3e1e0be55fcf8de04",
-      "originalGitBlob": "dc20af531232c1de8a966b81ae1922e03fc6134c",
-      "bytes": 6647,
+      "sha256": "449e1ea29f9df382f41a2e40899e5884154e326261aeaaa51882cb588902d57a",
+      "originalSha256": "449e1ea29f9df382f41a2e40899e5884154e326261aeaaa51882cb588902d57a",
+      "originalGitBlob": "bb6b47c872f4d13d2b0752ffa7b47e3ea698f2c6",
+      "bytes": 6652,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/features/about/presentation/developer_note_page.dart": {
-      "sha256": "e0670ef204157a8b4fa132f655370a707e41e62739cbac07c67af62d2dfab8cf",
-      "originalSha256": "e0670ef204157a8b4fa132f655370a707e41e62739cbac07c67af62d2dfab8cf",
-      "originalGitBlob": "bc7ff519f687d12553e1bf6044cc0dd0950efa8a",
-      "bytes": 18312,
+      "sha256": "80d7c12bb40a95757b447bae67fadaba574e7788bcaa066d1e12645c6b228a5f",
+      "originalSha256": "80d7c12bb40a95757b447bae67fadaba574e7788bcaa066d1e12645c6b228a5f",
+      "originalGitBlob": "9bd7d10a7889ed73ca7a9fdc426a6ad39c7da8d4",
+      "bytes": 15725,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/features/about/presentation/play_privacy_page.dart": {
@@ -27187,10 +27191,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/features/settings/presentation/settings_page.dart": {
-      "sha256": "ca4671571d4fad1725ce21fe3f046ca92e000788689176ed1542301883ce29a2",
-      "originalSha256": "ca4671571d4fad1725ce21fe3f046ca92e000788689176ed1542301883ce29a2",
-      "originalGitBlob": "38277fd63366e2af50416ec216668b4feb9e705d",
-      "bytes": 136870,
+      "sha256": "75245cd15bd0f43266069692e59b689176517d83ee1c5a5a4c85cde1496adc76",
+      "originalSha256": "75245cd15bd0f43266069692e59b689176517d83ee1c5a5a4c85cde1496adc76",
+      "originalGitBlob": "116187f9c818dd7bcd85b84c30c17031cd5a4fc0",
+      "bytes": 137218,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/features/settings/presentation/temporary_web_session_page.dart": {
@@ -27397,24 +27401,24 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/features/vault/presentation/vault_gate.dart": {
-      "sha256": "2317bb01626ceba276b4edafc2afb087f15299249424483b20e85f81f9de008e",
-      "originalSha256": "2317bb01626ceba276b4edafc2afb087f15299249424483b20e85f81f9de008e",
-      "originalGitBlob": "ef0b7d338acfd6943827428f4672e89965c78c47",
-      "bytes": 50915,
+      "sha256": "324153c374ded823d869be5fd8fb524fe7883728b4dc6608a481f478c3250ec7",
+      "originalSha256": "324153c374ded823d869be5fd8fb524fe7883728b4dc6608a481f478c3250ec7",
+      "originalGitBlob": "93cb1e75c188a6263882c4a8c11c346160a46f3b",
+      "bytes": 51269,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/features/vault/presentation/vault_rebuild_page.dart": {
-      "sha256": "47134f4c97f3e7dd53718e2002bee11ac1c2f08c81f15046bb59a751b866fd08",
-      "originalSha256": "47134f4c97f3e7dd53718e2002bee11ac1c2f08c81f15046bb59a751b866fd08",
-      "originalGitBlob": "3060ffc8368525b0c80db59f14ca30ece4dcbc99",
-      "bytes": 9843,
+      "sha256": "df2598e93b417f49a5d83a214dac0dba71d62b800a3e6aac6645df5270f00375",
+      "originalSha256": "df2598e93b417f49a5d83a214dac0dba71d62b800a3e6aac6645df5270f00375",
+      "originalGitBlob": "59990d1693b4051845e4988a10a12bfde5d979fe",
+      "bytes": 12138,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/app_localizations.dart": {
-      "sha256": "a04894a696aac963617270a372d56d61460d064e78adaba170655899b9c668dc",
-      "originalSha256": "a04894a696aac963617270a372d56d61460d064e78adaba170655899b9c668dc",
-      "originalGitBlob": "68ca0cba82631ced383b80ce306c6cb4d8126988",
-      "bytes": 8273,
+      "sha256": "733b3243810fc3197b25ec31da126fc52db697bcbc2510c1609f58b9a3cbb7e9",
+      "originalSha256": "733b3243810fc3197b25ec31da126fc52db697bcbc2510c1609f58b9a3cbb7e9",
+      "originalGitBlob": "d5e1863fd69697f695a905f429211d2da8e04538",
+      "bytes": 8300,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/context_l10n.dart": {
@@ -27446,10 +27450,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_app_state_recovery.dart": {
-      "sha256": "41a0ded62d1cda8d04fa38baa54e37522b6ea70040d841ebc64b5b5193bb8b6a",
-      "originalSha256": "41a0ded62d1cda8d04fa38baa54e37522b6ea70040d841ebc64b5b5193bb8b6a",
-      "originalGitBlob": "b60886dd11c7c38a752bea308ca102d36ca6248b",
-      "bytes": 30103,
+      "sha256": "f87da6608b0a5a55d810c47a537ccefcda7016ba5bfc8399620f2984a3fc9a36",
+      "originalSha256": "f87da6608b0a5a55d810c47a537ccefcda7016ba5bfc8399620f2984a3fc9a36",
+      "originalGitBlob": "5f1befa12dc384c11d487df7f3ce2570077a9e5c",
+      "bytes": 34257,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_commercial.dart": {
@@ -27460,10 +27464,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_core.dart": {
-      "sha256": "a17f55ed045e86a9b13fa181da438b63424e578a372ae73a0980db08d5b55d8d",
-      "originalSha256": "a17f55ed045e86a9b13fa181da438b63424e578a372ae73a0980db08d5b55d8d",
-      "originalGitBlob": "08f17d77152b3a5aaf652abe3732b13f078c62b8",
-      "bytes": 2550,
+      "sha256": "9e3dcb58b55add97278a0028fec065bde8a51c7fcba24b83dac5cfbf420c799a",
+      "originalSha256": "9e3dcb58b55add97278a0028fec065bde8a51c7fcba24b83dac5cfbf420c799a",
+      "originalGitBlob": "ebc91e16a69d2c385ee3684850c5f34e9939ab72",
+      "bytes": 2725,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_cost_password.dart": {
@@ -27509,17 +27513,17 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_records.dart": {
-      "sha256": "f8e755607d4062d9adcce351ea2a3c9e9f87eebf0b0b6c03943614e7082af63c",
-      "originalSha256": "f8e755607d4062d9adcce351ea2a3c9e9f87eebf0b0b6c03943614e7082af63c",
-      "originalGitBlob": "ccbb2e5031f1ea6eafb0ded2ac856f00590f8af6",
-      "bytes": 84616,
+      "sha256": "24d436aacd76be9a82f90ba59a703cac0508a749b7224f2d4d61980ec259cde4",
+      "originalSha256": "24d436aacd76be9a82f90ba59a703cac0508a749b7224f2d4d61980ec259cde4",
+      "originalGitBlob": "c55076c04e56307e159a06781023422b1f93c32b",
+      "bytes": 85571,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_settings.dart": {
-      "sha256": "a4335de5a077b80528d550d64c9833ea46845fdfe874a5484a00f8f78598a657",
-      "originalSha256": "a4335de5a077b80528d550d64c9833ea46845fdfe874a5484a00f8f78598a657",
-      "originalGitBlob": "c2fd48810eaae1c866a47d653557483535db003b",
-      "bytes": 169131,
+      "sha256": "9e5abc16bf6ab4fc6875ada2af839ec16c6ca196db31e3aa9724a5cf35bbbd03",
+      "originalSha256": "9e5abc16bf6ab4fc6875ada2af839ec16c6ca196db31e3aa9724a5cf35bbbd03",
+      "originalGitBlob": "c11be77848b2b7103eafcfe34e5ab7df070a9a7e",
+      "bytes": 167968,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_share_intake.dart": {
@@ -27530,10 +27534,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_stage1.dart": {
-      "sha256": "e59bf106677cc8dd48bb6b8eb5db8f34f6288c880073fc73ae25d55324d98c60",
-      "originalSha256": "e59bf106677cc8dd48bb6b8eb5db8f34f6288c880073fc73ae25d55324d98c60",
-      "originalGitBlob": "7f85711e5321bd2c180a07f8d879d25cda2c5d60",
-      "bytes": 41053,
+      "sha256": "03cd0be72375a8b6b89920e47e346d29191f5ea195ef219685ae1f4679a1026e",
+      "originalSha256": "03cd0be72375a8b6b89920e47e346d29191f5ea195ef219685ae1f4679a1026e",
+      "originalGitBlob": "df30bdff2ff5d5aa23f694727178f07b9435f154",
+      "bytes": 41950,
       "mode": "100644"
     },
     "channels/ios-appstore/app/lib/l10n/translations_stage2.dart": {
@@ -27614,9 +27618,9 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/pubspec.yaml": {
-      "sha256": "698ba7bf074aa8b591b2577d48c891be7b7d8474ad702ca644180b466b5be82f",
-      "originalSha256": "698ba7bf074aa8b591b2577d48c891be7b7d8474ad702ca644180b466b5be82f",
-      "originalGitBlob": "56c86c1a1a3b4ec1a09b73a55ae933b825b870a9",
+      "sha256": "5ebca8236eec33472544473d3709349db16cb76b9089edd7fcf3126ffa22157c",
+      "originalSha256": "5ebca8236eec33472544473d3709349db16cb76b9089edd7fcf3126ffa22157c",
+      "originalGitBlob": "57b2298a2529048f4ab6765312ea731971ae9e02",
       "bytes": 1346,
       "mode": "100644"
     },
@@ -27922,10 +27926,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/developer_note_page_test.dart": {
-      "sha256": "dbfef8c65be71d27c2606a06932b86bb799088dde0f2d7ce736259778ec8504e",
-      "originalSha256": "dbfef8c65be71d27c2606a06932b86bb799088dde0f2d7ce736259778ec8504e",
-      "originalGitBlob": "76f9df815c657229871e5296e479a34ca2f7a161",
-      "bytes": 8701,
+      "sha256": "5011aeea2e837a95aa8900b386e19cced0a25eb3f595f3e28752e6917804da5f",
+      "originalSha256": "5011aeea2e837a95aa8900b386e19cced0a25eb3f595f3e28752e6917804da5f",
+      "originalGitBlob": "01719cdb2d991959b928d051c48b782f2a3830d6",
+      "bytes": 9487,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/display_and_drilldown_test.dart": {
@@ -28027,10 +28031,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/ios_native_security_test.dart": {
-      "sha256": "96abc4de9fb3cce7a51ee95676fa313bb6a241743e45285943450322b9b8ca83",
-      "originalSha256": "96abc4de9fb3cce7a51ee95676fa313bb6a241743e45285943450322b9b8ca83",
-      "originalGitBlob": "6520cafc8533ba28ee74326499a6ef4c7f11c21f",
-      "bytes": 6532,
+      "sha256": "f0f9a87cdbc85d919cc19fcc1b7d635da299713d302c2e209612b1cc0ee31a94",
+      "originalSha256": "f0f9a87cdbc85d919cc19fcc1b7d635da299713d302c2e209612b1cc0ee31a94",
+      "originalGitBlob": "eeb6e57803d99aaa0afe05a5b1fcb4522f48a616",
+      "bytes": 9309,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/ios_phase1_test.dart": {
@@ -28069,10 +28073,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/localization_catalog_test.dart": {
-      "sha256": "47721e6d627595061f1ae85862e8bdba3015f05464d7650d7e614f8df185d800",
-      "originalSha256": "47721e6d627595061f1ae85862e8bdba3015f05464d7650d7e614f8df185d800",
-      "originalGitBlob": "56a8073a98d64bf0a2a37bf2a87009da2eb6f820",
-      "bytes": 14640,
+      "sha256": "afa3c8bd1cccd8c85eccacc900a53b3a8551c202b89371911586cb70c506eb0b",
+      "originalSha256": "afa3c8bd1cccd8c85eccacc900a53b3a8551c202b89371911586cb70c506eb0b",
+      "originalGitBlob": "8e6e57baf652c0145cec20677689227ebfa74827",
+      "bytes": 14865,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/localized_text_test.dart": {
@@ -28209,10 +28213,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/release_asset_boundary_test.dart": {
-      "sha256": "71f416dc129570cc266edd3d6af990c88091aa2c84a2923f550ad965f55baba2",
-      "originalSha256": "71f416dc129570cc266edd3d6af990c88091aa2c84a2923f550ad965f55baba2",
-      "originalGitBlob": "16af68078faa97640fb4f94ec15583d96873c468",
-      "bytes": 9164,
+      "sha256": "a83d99c560d55353ef9d14af224843f2f2966cc9779da3f21bf2b37965f2f909",
+      "originalSha256": "a83d99c560d55353ef9d14af224843f2f2966cc9779da3f21bf2b37965f2f909",
+      "originalGitBlob": "a81cef1e7e54954b0040753ff2b23437c1cccfa6",
+      "bytes": 9669,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/reminder_localization_test.dart": {
@@ -28272,10 +28276,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/settings_page_test.dart": {
-      "sha256": "cc82e22619600be041c5453e5ad67cafacf0a23c8d72f1d2d8450b68bec575b5",
-      "originalSha256": "cc82e22619600be041c5453e5ad67cafacf0a23c8d72f1d2d8450b68bec575b5",
-      "originalGitBlob": "d4ecd962cfe2083743c0fcd8c049dedd95148641",
-      "bytes": 52922,
+      "sha256": "ccc35c267ce457ff22b857413534c0f3f31ba5150d5d773afea42e0584b53d79",
+      "originalSha256": "ccc35c267ce457ff22b857413534c0f3f31ba5150d5d773afea42e0584b53d79",
+      "originalGitBlob": "dae79e0cb7d441b038fd4d5f11b6daf2f3664897",
+      "bytes": 54749,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/share_android_security_config_test.dart": {
@@ -28321,10 +28325,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/stage1_safety_integration_test.dart": {
-      "sha256": "2881b36862213ae9e645e9a5e05d8bf6c484a1226f849ffaaf0e8a960d756d18",
-      "originalSha256": "2881b36862213ae9e645e9a5e05d8bf6c484a1226f849ffaaf0e8a960d756d18",
-      "originalGitBlob": "5a7be53ed569ecef54c24a4d3543f843b72c6ae3",
-      "bytes": 15864,
+      "sha256": "e83fffdd9009f615ed08becf19662168541ac96e490fd5718542faf6220eb80e",
+      "originalSha256": "e83fffdd9009f615ed08becf19662168541ac96e490fd5718542faf6220eb80e",
+      "originalGitBlob": "12d878e272e333e32296b6b7ebb1c9667001e07b",
+      "bytes": 17268,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/stage1_safety_ui_test.dart": {
@@ -28580,10 +28584,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/support/fake_vault_store.dart": {
-      "sha256": "0108a3e1101011135c7cb6a923314faa624df57ed5f2f59ca60dbf1f25205d69",
-      "originalSha256": "0108a3e1101011135c7cb6a923314faa624df57ed5f2f59ca60dbf1f25205d69",
-      "originalGitBlob": "4eba396df22ecea1cdb2e5757dca53f438062dda",
-      "bytes": 16877,
+      "sha256": "2a6c941b5492032bae805c147191aa99677a8a7798c5b5d1de911a44ca351889",
+      "originalSha256": "2a6c941b5492032bae805c147191aa99677a8a7798c5b5d1de911a44ca351889",
+      "originalGitBlob": "a44e2977c08efdfd4d7ff2654df4d2d4fdc33878",
+      "bytes": 16974,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/support/recording_reminder_scheduler.dart": {
@@ -28685,10 +28689,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/temporary_web_server_io_test.dart": {
-      "sha256": "a16c81d232b2733077789e0c4c332add75793bea64936e0998c0f1a2aabb4423",
-      "originalSha256": "a16c81d232b2733077789e0c4c332add75793bea64936e0998c0f1a2aabb4423",
-      "originalGitBlob": "b3acf4aaea570c6ef53ec6cf16c247c9bd9b7420",
-      "bytes": 29881,
+      "sha256": "aba5ac3b70bd8e87938b5a559f7191a9a9a26693743079a4f6d52bf0e15870e3",
+      "originalSha256": "aba5ac3b70bd8e87938b5a559f7191a9a9a26693743079a4f6d52bf0e15870e3",
+      "originalGitBlob": "8b385eec9f64768d0618e39ae6da6e5a610dc650",
+      "bytes": 30009,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/temporary_web_session_page_test.dart": {
@@ -28734,10 +28738,10 @@
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/vault_recovery_entry_test.dart": {
-      "sha256": "fbc1490b541e6311870dccd11a399b7782cf12af8a809d9de7f723363478522a",
-      "originalSha256": "fbc1490b541e6311870dccd11a399b7782cf12af8a809d9de7f723363478522a",
-      "originalGitBlob": "e428e47cf3c5f37e1c72a09e970e6b7259434af1",
-      "bytes": 7351,
+      "sha256": "2fb9802c7ecd51d4eb6eccd9e05f72c8efd8c8760a2a6a3ae25112c0de2d91e9",
+      "originalSha256": "2fb9802c7ecd51d4eb6eccd9e05f72c8efd8c8760a2a6a3ae25112c0de2d91e9",
+      "originalGitBlob": "aa22a3c72256dfc3eb7d32520786f34aba71fffc",
+      "bytes": 8117,
       "mode": "100644"
     },
     "channels/ios-appstore/app/test/vault_recovery_journal_test.dart": {
@@ -29173,11 +29177,40 @@
       "originalGitBlob": "75263000611b28af8d20f707cdc1ea7f6ec13e50",
       "bytes": 1267,
       "mode": "100644"
+    },
+    "channels/ios-appstore/app/ios/Runner/CardockVaultRebuildBridge.swift": {
+      "sha256": "41c12e29b902bef19d2a526abcc76e2f63cd0ee1892e18f6ac2bfdbaa388d28a",
+      "originalSha256": "41c12e29b902bef19d2a526abcc76e2f63cd0ee1892e18f6ac2bfdbaa388d28a",
+      "originalGitBlob": "05a723bd1a9f54769734f685b054282c0bed6af5",
+      "bytes": 9074,
+      "mode": "100644"
+    },
+    "channels/ios-appstore/app/test/ios_application_name_test.dart": {
+      "sha256": "276b37e2cebf83bb81f7f55ff52b8b16ac304a852bf9da0a2965193f7d817122",
+      "originalSha256": "276b37e2cebf83bb81f7f55ff52b8b16ac304a852bf9da0a2965193f7d817122",
+      "originalGitBlob": "1c16294babd52d7220d14211aece6f5c41a4482a",
+      "bytes": 1432,
+      "mode": "100644"
+    },
+    "channels/ios-appstore/app/test/ios_recovery_lifecycle_test.dart": {
+      "sha256": "4abee07b5284b4ca0ead120ddf1322b372c6c733aaffe908c8d7a7f6a668c4a4",
+      "originalSha256": "4abee07b5284b4ca0ead120ddf1322b372c6c733aaffe908c8d7a7f6a668c4a4",
+      "originalGitBlob": "47507e4d6f2ac035b5d495121b7b695f89716dc2",
+      "bytes": 16252,
+      "mode": "100644"
+    },
+    "channels/ios-appstore/app/test/vault_rebuild_authentication_test.dart": {
+      "sha256": "a0a45ba61c3d2e7406b95d96ecb1ebf373acc6644ec9fa40c02ec0829855a73b",
+      "originalSha256": "a0a45ba61c3d2e7406b95d96ecb1ebf373acc6644ec9fa40c02ec0829855a73b",
+      "originalGitBlob": "77f71198dca220e36668c56bf29be2789505bb64",
+      "bytes": 11751,
+      "mode": "100644"
     }
   },
   "limitations": [
     "Source provenance and passing tests are not an independent security audit.",
     "No claim of byte-identical reproduction of store binaries.",
     "No production signing keys, vaults, orders, deployment backend or private operational history included."
-  ]
+  ],
+  "lastUpdated": "2026-11-04"
 }

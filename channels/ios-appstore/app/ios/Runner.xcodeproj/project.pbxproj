@@ -24,6 +24,7 @@
 		A20000000000000000000001 /* CardockLocal.storekit in Resources */ = {isa = PBXBuildFile; fileRef = A20000000000000000000002 /* CardockLocal.storekit */; };
 		A30000000000000000000001 /* CardockStoreReceiptVerifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30000000000000000000002 /* CardockStoreReceiptVerifier.swift */; };
 		A40000000000000000000001 /* CardockBiometricSecretBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40000000000000000000002 /* CardockBiometricSecretBridge.swift */; };
+		A60000000000000000000001 /* CardockVaultRebuildBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60000000000000000000002 /* CardockVaultRebuildBridge.swift */; };
 		A50000000000000000000001 /* CardockLocalNetworkBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50000000000000000000002 /* CardockLocalNetworkBridge.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		A20000000000000000000002 /* CardockLocal.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = CardockLocal.storekit; sourceTree = "<group>"; };
 		A30000000000000000000002 /* CardockStoreReceiptVerifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardockStoreReceiptVerifier.swift; sourceTree = "<group>"; };
 		A40000000000000000000002 /* CardockBiometricSecretBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardockBiometricSecretBridge.swift; sourceTree = "<group>"; };
+		A60000000000000000000002 /* CardockVaultRebuildBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardockVaultRebuildBridge.swift; sourceTree = "<group>"; };
 		A50000000000000000000002 /* CardockLocalNetworkBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardockLocalNetworkBridge.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 				1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */,
 				A10000000000000000000002 /* CardockCoreBridge.swift */,
 				A40000000000000000000002 /* CardockBiometricSecretBridge.swift */,
+				A60000000000000000000002 /* CardockVaultRebuildBridge.swift */,
 				A50000000000000000000002 /* CardockLocalNetworkBridge.swift */,
 				A30000000000000000000002 /* CardockStoreReceiptVerifier.swift */,
 				A10000000000000000000004 /* PrivacyInfo.xcprivacy */,
@@ -317,6 +320,7 @@
 			files = (
 				A10000000000000000000001 /* CardockCoreBridge.swift in Sources */,
 				A40000000000000000000001 /* CardockBiometricSecretBridge.swift in Sources */,
+				A60000000000000000000001 /* CardockVaultRebuildBridge.swift in Sources */,
 				A50000000000000000000001 /* CardockLocalNetworkBridge.swift in Sources */,
 				A30000000000000000000001 /* CardockStoreReceiptVerifier.swift in Sources */,
 				74858FAF1ED2DC5600515810 /* AppDelegate.swift in Sources */,

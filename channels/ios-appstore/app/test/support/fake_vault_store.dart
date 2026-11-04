@@ -36,6 +36,7 @@ final class FakeVaultStore
   bool failSaves = false;
   bool failAccess = false;
   bool recoveredFromFallback;
+  Future<void> Function()? beforeRecoveryForTesting;
   Completer<void>? createGate;
   Completer<void>? unlockGate;
   Completer<void>? saveGate;
@@ -245,6 +246,7 @@ final class FakeVaultStore
     bool allowPrimaryRecovery = true,
     Future<void> Function()? beforePrimaryCommit,
   }) async {
+    await beforeRecoveryForTesting?.call();
     final normalized = answers
         .map(normalizeVaultRecoveryAnswer)
         .toList(growable: false);

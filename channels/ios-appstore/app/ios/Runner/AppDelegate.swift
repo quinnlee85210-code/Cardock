@@ -10,6 +10,7 @@ import UserNotifications
   private var purchaseBridge: CardockStorePurchaseBridge?
   private var coreBridge: CardockCoreBridge?
   private var biometricBridge: CardockBiometricSecretBridge?
+  private var rebuildBridge: CardockVaultRebuildBridge?
   private var localNetworkBridge: CardockLocalNetworkBridge?
   override func application(_ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -22,6 +23,7 @@ import UserNotifications
       launcherIconBridge = CardockLauncherIconBridge(messenger: registrar.messenger())
       coreBridge = CardockCoreBridge(messenger: registrar.messenger())
       biometricBridge = CardockBiometricSecretBridge(messenger: registrar.messenger())
+      rebuildBridge = CardockVaultRebuildBridge(messenger: registrar.messenger())
       localNetworkBridge = CardockLocalNetworkBridge(messenger: registrar.messenger())
       purchaseBridge = CardockStorePurchaseBridge(messenger: registrar.messenger())
     }

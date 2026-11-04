@@ -171,7 +171,7 @@ class AppLocalizations {
 
   bool hasTranslation(String source) => catalog.containsKey(source);
 
-  String get appTitle => translate('Cardock');
+  String get appTitle => translate('Cardock账号密码订阅管理器');
 
   String _localizeCapturedValue(String value) {
     final duration = RegExp(r'^(\d+)(秒|分钟)$').firstMatch(value);

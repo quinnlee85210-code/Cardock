@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:flutter/foundation.dart';
+
 import '../../../l10n/context_l10n.dart';
 import '../../../l10n/localized_material.dart';
 import '../../../l10n/translations_records.dart';
@@ -747,8 +749,10 @@ class _VaultRecoveryPageState extends State<VaultRecoveryPage> {
                             style: Theme.of(context).textTheme.titleLarge,
                           ),
                           const SizedBox(height: 8),
-                          const Text(
-                            '下方会直接显示你设置时选择的三道问题。请填写对应答案，再通过本机指纹或安全级人脸。成功后会生成全新数据密钥并重设密码。',
+                          Text(
+                            defaultTargetPlatform == TargetPlatform.iOS
+                                ? '下方会显示你设置的三道问题。填写答案后，可通过设备锁屏密码或面容 ID／触控 ID 验证；无需开启生物识别。成功后会生成全新数据密钥并重设密码。'
+                                : '下方会直接显示你设置时选择的三道问题。请填写对应答案，再通过本机指纹或安全级人脸。成功后会生成全新数据密钥并重设密码。',
                             textAlign: TextAlign.center,
                           ),
                           const SizedBox(height: 20),

@@ -28,7 +28,7 @@ class AboutCardockPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text(
-                AppMetadata.name,
+                context.l10n.appTitle,
                 translate: false,
                 key: const ValueKey<String>('about-application-name'),
               ),

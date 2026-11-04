@@ -20,6 +20,84 @@ void main() {
   });
 
   test(
+    'recovery enrollment and read do not consult biometric availability',
+    () async {
+      final stored = <String, String>{};
+      final calls = <String>[];
+      messenger.setMockMethodCallHandler(channel, (call) async {
+        final args = Map<String, Object?>.from(call.arguments as Map);
+        final kind = args['kind']! as String;
+        calls.add('$kind:${call.method}');
+        if (call.method == 'availability') return 'not_enrolled';
+        if (call.method == 'write') {
+          expect(kind, 'recovery');
+          stored[kind] = args['payload']! as String;
+          return null;
+        }
+        if (call.method == 'read') return stored[kind];
+        return stored.containsKey(kind);
+      });
+      final quick = BiometricQuickUnlockSecretStore(
+        useAndroidV2: false,
+        useIOSBridge: true,
+      );
+      expect(await quick.availability(), BiometricAvailability.notEnrolled);
+      calls.clear();
+      final recovery = BiometricRecoveryDeviceSecretStore(
+        useAndroidV1: false,
+        useIOSBridge: true,
+      );
+      final material = RecoveryDeviceSecretMaterial(
+        vaultInstanceId: 'test-vault',
+        slotId: 'test-slot',
+        deviceBindingId: 'test-binding',
+        deviceSecret: List.filled(32, 7),
+      );
+      addTearDown(material.destroy);
+      await recovery.write(material);
+      final restored = (await recovery.read())!;
+      addTearDown(restored.destroy);
+      expect(restored.deviceSecret, material.deviceSecret);
+      expect(restored.deviceBindingId, material.deviceBindingId);
+      expect(calls, ['recovery:write', 'recovery:read']);
+    },
+  );
+
+  for (final entry in {
+    'passcode_not_set': RecoveryDeviceSecretFailureReason.devicePasscodeNotSet,
+    'device_authentication_unavailable':
+        RecoveryDeviceSecretFailureReason.deviceAuthenticationUnavailable,
+    'legacy_recovery_unavailable':
+        RecoveryDeviceSecretFailureReason.legacyRecoveryUnavailable,
+  }.entries) {
+    test(
+      'iOS recovery ${entry.key} preserves configuration and maps the cause',
+      () async {
+        messenger.setMockMethodCallHandler(
+          channel,
+          (_) async => throw PlatformException(code: entry.key),
+        );
+        final recovery = BiometricRecoveryDeviceSecretStore(
+          useAndroidV1: false,
+          useIOSBridge: true,
+        );
+        await expectLater(
+          recovery.read(),
+          throwsA(
+            isA<RecoveryDeviceSecretException>()
+                .having((error) => error.reason, 'reason', entry.value)
+                .having(
+                  (error) => error.reason.invalidatesConfiguration,
+                  'preserve configuration',
+                  false,
+                ),
+          ),
+        );
+      },
+    );
+  }
+
+  test(
     'iOS quick unlock and recovery use separate native kinds and payloads',
     () async {
       final stored = <String, String>{};

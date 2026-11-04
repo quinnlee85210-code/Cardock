@@ -12,17 +12,30 @@ void main() {
       multiLine: true,
     ).firstMatch(pubspec)!.group(1)!.trim();
     expect(AppMetadata.version, packageVersion);
-    expect(AppMetadata.displayVersion, '1.0.0');
-    expect(packageVersion.split('+').last, '75');
+    expect(AppMetadata.displayVersion, '1.0.1');
+    expect(packageVersion.split('+').last, '92');
   });
 
   test(
-    'the product name and purchase title use Cardock in all three locales',
+    'localized app names match iOS launcher names and preserve the Cardock brand',
     () {
-      expect(AppMetadata.name, 'Cardock');
+      expect(AppMetadata.name, 'Cardock账号密码订阅管理器');
       for (final locale in AppLocalizations.supportedLocales) {
         final localizations = AppLocalizations(locale);
-        expect(localizations.appTitle, 'Cardock');
+        final directory = switch (locale.languageCode) {
+          'zh' => 'zh-Hans',
+          'ja' => 'ja',
+          _ => 'en',
+        };
+        final strings = File(
+          'ios/Runner/$directory.lproj/InfoPlist.strings',
+        ).readAsStringSync();
+        expect(
+          strings,
+          contains('"CFBundleDisplayName" = "${localizations.appTitle}";'),
+        );
+        expect(localizations.appTitle, startsWith('Cardock'));
+        expect(localizations.appTitle.runes.length, lessThanOrEqualTo(30));
         final title = localizations.translate('Cardock 完整版');
         expect(title, contains('Cardock'));
         if (locale.languageCode != 'zh') {
@@ -87,7 +100,7 @@ void main() {
     expect(pubspec, isNot(contains('vendor/')));
     expect(pubspec, isNot(contains('manifests/')));
     expect(pubspec, isNot(contains('assets/donate')));
-    expect(pubspec, contains('version: 1.0.0+75'));
+    expect(pubspec, contains('version: 1.0.1+92'));
     expect(pubspec, isNot(contains('golden_screens')));
   });
 
@@ -99,7 +112,7 @@ void main() {
       'lib/features/about/presentation/about_cardock_page.dart',
     ).readAsString();
 
-    expect(metadataSource, contains("version = '1.0.0+75'"));
+    expect(metadataSource, contains("version = '1.0.1+92'"));
     expect(aboutSource, contains('关于 Cardock'));
     expect(aboutSource, contains('随机 256 位数据密钥'));
     expect(aboutSource, contains('AES-256-GCM'));

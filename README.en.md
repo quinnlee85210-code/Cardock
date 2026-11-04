@@ -2,7 +2,7 @@
 
 **Source code available for security review. Official full-version builds remain a one-time purchase.**
 
-Cardock stores personal account, password and subscription records in a local vault. This repository publishes separate client source snapshots for the website Android, Google Play Android and App Store iOS releases.
+Cardock stores personal account, password and subscription records in a local vault. This repository publishes separate client source snapshots for the website Android, Google Play Android and App Store iOS channels.
 
 This is a **source-available project, not an open-source license grant**. The [Cardock Source Review License](LICENSE) permits private inspection, compilation, modification and execution for security review, verification and evaluation. It does not authorize redistributing application binaries, publishing derivative products or closed-source commercial variants. Independent rights granted by GitHub's platform terms and by third-party licenses remain unaffected.
 
@@ -12,9 +12,11 @@ This is a **source-available project, not an open-source license grant**. The [C
 | --- | --- | --- |
 | `channels/android-website` | 1.0.3+87, schema15 | Official APK has no INTERNET permission; purchase and order interactions use an external browser, followed by offline license verification. No temporary LAN input feature. |
 | `channels/android-play` | 1.0.2+86, schema15 | Play Billing and an explicitly started temporary LAN input feature. |
-| `channels/ios-appstore` | 1.0.0+75, schema15 | StoreKit and temporary LAN input; iOS 16 or later. Includes the required vendored `third_party/file_picker` dependency. |
+| `channels/ios-appstore` | 1.0.1+92, schema15 (submitted; waiting for review; not publicly released) | StoreKit and temporary LAN input; iOS 16 or later. Includes the required vendored `third_party/file_picker` dependency. |
 
-Each directory is a separate release snapshot. Platform templates in a snapshot are not proof that it was released on those platforms. Source provenance, per-file hashes and the small build/test portability changes are recorded in [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) and [PUBLICATION.md](PUBLICATION.md).
+Each directory is a separate channel snapshot. Platform templates in a snapshot are not proof that it was released on those platforms. Source provenance, per-file hashes and the small build/test portability changes are recorded in [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) and [PUBLICATION.md](PUBLICATION.md).
+
+iOS 92 has been submitted to App Store review and is waiting for review. The current public App Store version remains 1.0.0. This snapshot includes device-authenticated reset and recovery fixes, localized app names, and settings copy updates. Source availability does not mean Apple has approved or released the update.
 
 Source publication enables inspection. It is not an independent audit or proof that a program contains no backdoors or vulnerabilities. The initial HTTP page used for temporary LAN input has a documented authenticity limitation; the feature is not described as fully HTTPS or end-to-end secure. See [SECURITY.md](SECURITY.md).
 

@@ -658,9 +658,9 @@ void main() {
       final html = await _projectFile(
         'assets/temporary_web/index.html',
       ).readAsString();
-      final clientSource = await _projectFile(
+      final clientSource = (await _projectFile(
         'tool/temporary_web_client.dart',
-      ).readAsString();
+      ).readAsString()).replaceAll('\r\n', '\n');
       expect(clientSource, contains("_snapshot['accountCategories']"));
       expect(clientSource, contains('_populateCategoryChoices'));
       final javascript = await _projectFile(
@@ -690,7 +690,8 @@ void main() {
       expect(clientSource, contains('_connectionExpiryTimer'));
       expect(clientSource, contains('connectionDurationMilliseconds'));
       expect(clientSource, isNot(contains('_heartbeatTimer')));
-      expect(clientSource, isNot(contains('Timer.periodic')));
+      // The released iOS client polls session status to notice phone revocation.
+      // Fixed expiry (polling must not renew it) is covered by controller tests.
       expect(clientSource, contains("'phone-approval-dialog'"));
       expect(clientSource, contains("'batch-commit-guidance'"));
       expect(html, contains('id="phone-approval-dialog"'));

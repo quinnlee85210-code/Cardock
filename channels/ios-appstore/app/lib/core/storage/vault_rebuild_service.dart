@@ -23,8 +23,8 @@ abstract interface class RebuildPlatform {
   Future<void> clearForCommittedRebuild();
 }
 
-final class AndroidRebuildPlatform implements RebuildPlatform {
-  const AndroidRebuildPlatform();
+final class MethodChannelRebuildPlatform implements RebuildPlatform {
+  const MethodChannelRebuildPlatform();
   static const _channel = MethodChannel('cardock/vault_rebuild_v1');
   @override
   Future<RebuildAuthorization?> authorize(String title, String message) async {
@@ -71,17 +71,20 @@ final class VaultRebuildService {
     required this.directory,
     required this.platform,
     required this.reminders,
+    this.requiresTypedConfirmation = true,
     this.afterStep,
   });
   factory VaultRebuildService.appSupport(ReminderScheduler reminders) =>
       VaultRebuildService(
         directory: getApplicationSupportDirectory,
-        platform: const AndroidRebuildPlatform(),
+        platform: const MethodChannelRebuildPlatform(),
         reminders: reminders,
+        requiresTypedConfirmation: !Platform.isIOS,
       );
   final Future<Directory> Function() directory;
   final RebuildPlatform platform;
   final ReminderScheduler reminders;
+  final bool requiresTypedConfirmation;
   final Future<void> Function(String step)? afterStep;
   static const journalName = 'cardock_rebuild_v1.json';
   static const _vaultDirectories = {
@@ -127,8 +130,10 @@ final class VaultRebuildService {
     required String phrase,
     String secondPhrase = '',
   }) async {
-    if (phrase != '删除本机 Cardock 数据' ||
-        (authorization.unsecured && secondPhrase != '我理解没有备份将无法恢复')) {
+    if (requiresTypedConfirmation
+        ? phrase != '删除本机 Cardock 数据' ||
+              (authorization.unsecured && secondPhrase != '我理解没有备份将无法恢复')
+        : authorization.unsecured) {
       return false;
     }
     if (!await platform.consume(authorization, phrase, secondPhrase)) {

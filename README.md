@@ -2,7 +2,7 @@
 
 **公开源码，接受安全审查。官方完整版继续采用一次性买断。**
 
-Cardock 是本地账号、密码与订阅记录工具。本仓库提供网站 Android、Google Play Android 与 App Store iOS 三个已发布渠道的客户端源码，方便检查加密、数据存储、网络访问、备份恢复和授权行为。
+Cardock 是本地账号、密码与订阅记录工具。本仓库按网站 Android、Google Play Android 与 App Store iOS 三个渠道提供客户端源码，方便检查加密、数据存储、网络访问、备份恢复和授权行为。
 
 这是 **Source Available（源码可见）** 项目，采用 [Cardock 源码审查许可](LICENSE)，**不是允许自由再分发的开源项目**。可以阅读、下载并在私人环境中编译、修改和运行以进行安全审查、验证与评估；本许可不授权另行分发安装包、发布衍生产品或闭源商业改版。GitHub 平台条款授予的浏览、Fork 等权利，以及第三方组件的原许可证权利，不受本项目自有许可限制。
 
@@ -20,9 +20,11 @@ Cardock 是本地账号、密码与订阅记录工具。本仓库提供网站 An
 | --- | --- | --- |
 | [channels/android-website](channels/android-website) | 1.0.3+87 / schema15 | 官网 Android 客户端；正式包不申请 INTERNET 权限，购买和订单操作交给外部浏览器，应用离线验证授权；不提供临时局域网电脑录入。 |
 | [channels/android-play](channels/android-play) | 1.0.2+86 / schema15 | Google Play 客户端；使用 Play Billing，保留用户主动启动的临时局域网电脑录入。 |
-| [channels/ios-appstore](channels/ios-appstore) | 1.0.0+75 / schema15 | iOS 客户端；使用 StoreKit，保留用户主动启动的临时局域网电脑录入；最低 iOS 16。 |
+| [channels/ios-appstore](channels/ios-appstore) | 1.0.1+92 / schema15（已提交审核，等待审核，未正式发布） | iOS 客户端；使用 StoreKit，保留用户主动启动的临时局域网电脑录入；最低 iOS 16。 |
 
-三个目录是各自发行版本的独立源码快照，避免把不同渠道的权限、购买和平台实现混在一起。每个快照可能包含 Flutter 跨平台工程模板；其他平台目录的存在不表示该渠道已经在那些平台发布。iOS 的 `third_party/file_picker` 是必需的相对路径依赖。
+三个目录是各渠道的独立源码快照，避免把不同渠道的权限、购买和平台实现混在一起。每个快照可能包含 Flutter 跨平台工程模板；其他平台目录的存在不表示该渠道已经在那些平台发布。iOS 的 `third_party/file_picker` 是必需的相对路径依赖。
+
+iOS 92 已提交 App Store 审核，当前正在等待审核；当前 App Store 正式版本仍为 1.0.0。该快照包括系统认证重置、密保恢复修复、三语名称和设置页文案更新。源码快照可供审查不代表 Apple 已批准或发布更新。
 
 原始来源、逐文件 SHA256 及公开副本的构建／测试路径适配见 [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) 和 [PUBLICATION.md](PUBLICATION.md)。本次公开不改变现有应用版本、购买权益或用户数据格式。
 

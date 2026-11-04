@@ -10,7 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('开发者的话使用权威中文结构且不包含赞赏收款内容', (tester) async {
+  testWidgets('开发者的话保留介绍与三项坚持并移除购买支持内容', (tester) async {
     await _setViewport(tester, const Size(420, 900));
     await _pumpDeveloperNote(tester);
 
@@ -19,13 +19,13 @@ void main() {
     expect(find.text('第一款作品'), findsOneWidget);
     expect(find.text('9.9 元一次买断'), findsOneWidget);
     expect(find.text('长期维护'), findsOneWidget);
-    _expectNoDonationContent();
+    _expectNoRemovedContent();
 
     await _scrollTo(tester, 'developer-note-letter');
     expect(find.text('为什么做 Cardock'), findsOneWidget);
     expect(find.text('账号、密码和订阅记录，都是非常私人的信息。'), findsOneWidget);
     expect(find.textContaining('它不是一个做完就放下的试验项目'), findsOneWidget);
-    _expectNoDonationContent();
+    _expectNoRemovedContent();
 
     await _scrollTo(tester, 'developer-note-principles');
     expect(find.text('我会坚持的三件事'), findsOneWidget);
@@ -40,83 +40,68 @@ void main() {
       findsNothing,
       reason: '三项坚持必须位于同一张卡片中，不嵌套三张大卡片',
     );
-    _expectNoDonationContent();
-
-    await _scrollTo(tester, 'developer-note-purchase');
-    expect(find.text('一次购买，就是最直接的支持'), findsOneWidget);
-    expect(find.text('复制推荐文案'), findsOneWidget);
-    _expectNoDonationContent();
+    _expectNoRemovedContent();
 
     await _scrollTo(tester, 'developer-note-contact');
     expect(find.text('联系与反馈'), findsOneWidget);
-    expect(find.text('kawucardock'), findsOneWidget);
+    expect(find.text('Cardock666@outlook.com'), findsOneWidget);
     expect(find.text('隐私与安全说明'), findsOneWidget);
     expect(find.byType(Image), findsNothing);
-    _expectNoDonationContent();
+    _expectNoRemovedContent();
 
     await _scrollTo(tester, 'developer-note-signature');
     expect(find.text('谢谢你愿意使用 Cardock。'), findsOneWidget);
     expect(find.text('我会认真把它维护下去。'), findsOneWidget);
     expect(find.text('—— Cardock 开发者'), findsOneWidget);
-    _expectNoDonationContent();
+    _expectNoRemovedContent();
   });
 
-  testWidgets('微信号使用普通 Clipboard 精确复制并显示成功提示', (tester) async {
-    MethodCall? clipboardCall;
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(SystemChannels.platform, (call) async {
-          if (call.method == 'Clipboard.setData') clipboardCall = call;
-          return null;
+  for (final (locale, copiedMessage) in <(Locale, String)>[
+    (const Locale('zh', 'CN'), '邮箱已复制'),
+    (const Locale('en'), 'Email copied'),
+    (const Locale('ja'), 'メールアドレスをコピーしました'),
+  ]) {
+    testWidgets(
+      '$locale 联系邮箱精确显示和复制并显示本地化成功提示',
+      (tester) async {
+        MethodCall? clipboardCall;
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+            .setMockMethodCallHandler(SystemChannels.platform, (call) async {
+              if (call.method == 'Clipboard.setData') clipboardCall = call;
+              return null;
+            });
+        addTearDown(() {
+          TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+              .setMockMethodCallHandler(SystemChannels.platform, null);
         });
-    addTearDown(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(SystemChannels.platform, null);
-    });
 
-    await _setViewport(tester, const Size(420, 900));
-    await _pumpDeveloperNote(tester);
-    await _scrollTo(tester, 'developer-note-contact');
-    await tester.tap(
-      find.byKey(const ValueKey<String>('developer-note-copy-wechat')),
+        await _setViewport(tester, const Size(420, 900));
+        await _pumpDeveloperNote(tester, locale: locale);
+        await _scrollTo(tester, 'developer-note-copy-email');
+        expect(
+          tester
+              .widget<SelectableText>(
+                find.byKey(const ValueKey<String>('developer-note-email')),
+              )
+              .data,
+          'Cardock666@outlook.com',
+        );
+        await tester.tap(
+          find.byKey(const ValueKey<String>('developer-note-copy-email')),
+        );
+        await tester.pumpAndSettle();
+
+        expect(clipboardCall?.method, 'Clipboard.setData');
+        expect(
+          (clipboardCall?.arguments as Map<Object?, Object?>)['text'],
+          'Cardock666@outlook.com',
+        );
+        expect(find.text(copiedMessage), findsOneWidget);
+        _expectNoRemovedContent();
+      },
+      variant: TargetPlatformVariant.only(TargetPlatform.iOS),
     );
-    await tester.pumpAndSettle();
-
-    expect(clipboardCall?.method, 'Clipboard.setData');
-    expect(
-      (clipboardCall?.arguments as Map<Object?, Object?>)['text'],
-      'kawucardock',
-    );
-    expect(find.text('微信号已复制'), findsOneWidget);
-  });
-
-  testWidgets('推荐文案使用普通 Clipboard 且不附加商店链接', (tester) async {
-    MethodCall? clipboardCall;
-    TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-        .setMockMethodCallHandler(SystemChannels.platform, (call) async {
-          if (call.method == 'Clipboard.setData') clipboardCall = call;
-          return null;
-        });
-    addTearDown(() {
-      TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(SystemChannels.platform, null);
-    });
-
-    await _setViewport(tester, const Size(420, 900));
-    await _pumpDeveloperNote(tester);
-    await _scrollTo(tester, 'developer-note-purchase');
-    await tester.tap(
-      find.byKey(const ValueKey<String>('developer-note-copy-recommendation')),
-    );
-    await tester.pumpAndSettle();
-
-    const expected = 'Cardock：一款本地保存账号与订阅记录的工具，9.9 元一次买断，无广告、无订阅。';
-    expect(
-      (clipboardCall?.arguments as Map<Object?, Object?>)['text'],
-      expected,
-    );
-    expect(expected, isNot(contains('http')));
-    expect(find.text('推荐文案已复制'), findsOneWidget);
-  });
+  }
 
   testWidgets('隐私与安全说明进入现有 AboutCardockPage', (tester) async {
     await _setViewport(tester, const Size(420, 900));
@@ -133,25 +118,48 @@ void main() {
     );
   });
 
-  testWidgets('中英日三语框架在320x640和200%字体下可滚动且无溢出', (tester) async {
-    await _setViewport(tester, const Size(320, 640));
+  testWidgets(
+    '中英日三语框架在320x640和200%字体下可滚动且无溢出',
+    (tester) async {
+      await _setViewport(tester, const Size(320, 640));
 
-    for (final locale in AppLocalizations.supportedLocales) {
-      await _pumpDeveloperNote(
-        tester,
-        locale: locale,
-        textScale: 2,
-        theme: AppTheme.light(family: CardockThemeFamily.paperArchive),
-      );
-      expect(tester.takeException(), isNull, reason: locale.toString());
-      await _scrollTo(tester, 'developer-note-signature', delta: 240);
-      expect(tester.takeException(), isNull, reason: locale.toString());
-      expect(
-        find.byKey(const ValueKey<String>('developer-note-signature')),
-        findsOneWidget,
-      );
-    }
-  });
+      for (final (locale, emailLabel, copyTooltip)
+          in <(Locale, String, String)>[
+            (const Locale('zh', 'CN'), '联系邮箱', '复制邮箱'),
+            (const Locale('en'), 'Contact email', 'Copy email'),
+            (const Locale('ja'), '連絡先メールアドレス', 'メールアドレスをコピー'),
+          ]) {
+        await tester.pumpWidget(const SizedBox.shrink());
+        await _pumpDeveloperNote(
+          tester,
+          locale: locale,
+          textScale: 2,
+          theme: AppTheme.light(family: CardockThemeFamily.paperArchive),
+        );
+        expect(tester.takeException(), isNull, reason: locale.toString());
+        await _scrollTo(tester, 'developer-note-copy-email', delta: 240);
+        expect(find.text(emailLabel), findsOneWidget);
+        expect(find.byTooltip(copyTooltip), findsOneWidget);
+        expect(
+          tester
+              .widget<SelectableText>(
+                find.byKey(const ValueKey<String>('developer-note-email')),
+              )
+              .data,
+          'Cardock666@outlook.com',
+        );
+        _expectNoRemovedContent();
+        expect(tester.takeException(), isNull, reason: locale.toString());
+        await _scrollTo(tester, 'developer-note-signature', delta: 240);
+        expect(tester.takeException(), isNull, reason: locale.toString());
+        expect(
+          find.byKey(const ValueKey<String>('developer-note-signature')),
+          findsOneWidget,
+        );
+      }
+    },
+    variant: TargetPlatformVariant.only(TargetPlatform.iOS),
+  );
 
   testWidgets('全部固定主题与Custom的浅深模式均复用主题体系', (tester) async {
     await _setViewport(tester, const Size(390, 844));
@@ -221,7 +229,20 @@ Future<void> _scrollTo(
   await tester.pumpAndSettle();
 }
 
-void _expectNoDonationContent() {
+void _expectNoRemovedContent() {
+  expect(
+    find.byKey(const ValueKey<String>('developer-note-purchase')),
+    findsNothing,
+  );
+  expect(
+    find.byKey(const ValueKey<String>('developer-note-copy-recommendation')),
+    findsNothing,
+  );
+  expect(find.text('一次购买，就是最直接的支持'), findsNothing);
+  expect(find.text('复制推荐文案'), findsNothing);
+  expect(find.textContaining('微信'), findsNothing);
+  expect(find.textContaining('WeChat'), findsNothing);
+  expect(find.text('kawucardock'), findsNothing);
   expect(find.textContaining('¥6'), findsNothing);
   expect(find.textContaining('¥18'), findsNothing);
   expect(find.textContaining('¥66'), findsNothing);

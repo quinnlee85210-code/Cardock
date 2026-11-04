@@ -17,6 +17,8 @@ class _VaultRebuildPageState extends State<VaultRebuildPage> {
   RebuildAuthorization? authorization;
   String phrase = '', second = '';
   bool working = false, holdReady = false, pointerHeld = false;
+  bool authenticating = false;
+  String? authenticationError;
   int holdEpoch = 0;
   Timer? hold;
   @override
@@ -26,40 +28,67 @@ class _VaultRebuildPageState extends State<VaultRebuildPage> {
   }
 
   Future<void> authenticate() async {
-    if (!await safetyConfirm(
-      context,
-      '删除本机 Cardock 数据并重新开始',
-      '此操作不会找回旧密码，也不会解密旧数据；没有可用备份的数据将永久丢失。外部 .asmbackup 文件和合法完整版授权会保留。恢复备份仍需对应备份密码。',
-    )) {
-      return;
-    }
-    if (!mounted) return;
-    widget.appState.beginExternalInteraction();
-    RebuildAuthorization? result;
+    if (authenticating || working) return;
+    final typedConfirmation = widget.appState.rebuildRequiresTypedConfirmation;
+    setState(() {
+      authenticating = true;
+      authenticationError = null;
+      phrase = '';
+      second = '';
+      holdReady = false;
+    });
     try {
-      result = await widget.appState.authorizeRebuild(
-        context.tr('验证设备身份'),
-        context.tr('确认删除本机 Cardock 数据'),
-      );
+      if (!await safetyConfirm(
+            context,
+            '删除本机 Cardock 数据并重新开始',
+            typedConfirmation
+                ? '此操作不会找回旧密码，也不会解密旧数据；没有可用备份的数据将永久丢失。外部 .asmbackup 文件和合法完整版授权会保留。恢复备份仍需对应备份密码。'
+                : '系统身份验证通过后，将立即删除本机数据并重新开始。外部 .asmbackup 文件和合法完整版授权会保留；没有备份的数据将永久丢失。',
+          ) ||
+          !mounted) {
+        return;
+      }
+      widget.appState.beginExternalInteraction();
+      RebuildAuthorization? result;
+      try {
+        result = await widget.appState.authorizeRebuild(
+          context.tr('验证设备身份'),
+          context.tr('确认删除本机 Cardock 数据'),
+        );
+      } finally {
+        widget.appState.endExternalInteraction();
+      }
+      if (mounted) {
+        if (!typedConfirmation && result?.unsecured == true) result = null;
+        setState(() {
+          authorization = result;
+          authenticationError = result == null ? '系统身份验证未完成。' : null;
+        });
+        if (!typedConfirmation && result != null) await commit();
+      }
     } finally {
-      widget.appState.endExternalInteraction();
+      if (mounted) setState(() => authenticating = false);
     }
-    if (mounted) setState(() => authorization = result);
   }
 
   Future<void> commit() async {
     final auth = authorization;
+    final typedConfirmation = widget.appState.rebuildRequiresTypedConfirmation;
     if (auth == null ||
-        phrase != '删除本机 Cardock 数据' ||
-        (auth.unsecured && (second != '我理解没有备份将无法恢复' || !holdReady))) {
+        working ||
+        (typedConfirmation &&
+            (phrase != '删除本机 Cardock 数据' ||
+                (auth.unsecured &&
+                    (second != '我理解没有备份将无法恢复' || !holdReady))))) {
       return;
     }
-    if (!await safetyConfirm(
-      context,
-      '最终确认：删除本机数据？',
-      '删除后无法撤销。外部备份文件不会删除。',
-      action: '删除并重新开始',
-    )) {
+    if (typedConfirmation &&
+        !await safetyConfirm(
+          context,
+          '最终确认：删除本机数据？',
+          '删除后无法撤销。外部备份文件不会删除。',
+          action: '删除并重新开始',
+        )) {
       return;
     }
     if (!mounted) return;
@@ -112,7 +141,9 @@ class _VaultRebuildPageState extends State<VaultRebuildPage> {
                       key: const ValueKey<String>(
                         'start-vault-recovery-option',
                       ),
-                      onPressed: working ? null : widget.onRecovery,
+                      onPressed: working || authenticating
+                          ? null
+                          : widget.onRecovery,
                       child: Text(
                         widget.onRecovery == null
                             ? '当前入口没有可用的密码恢复配置'
@@ -144,12 +175,23 @@ class _VaultRebuildPageState extends State<VaultRebuildPage> {
                       '真实库、诱饵库、回收站、本地恢复凭据、自动备份配置和临时录入资料都会清除。外部备份不会删除。',
                     ),
                     const SizedBox(height: 16),
+                    if (authenticationError != null)
+                      Text(
+                        authenticationError!,
+                        key: const ValueKey('rebuild-authentication-error'),
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.error,
+                        ),
+                      ),
                     if (auth == null)
                       FilledButton(
-                        onPressed: working ? null : authenticate,
+                        onPressed: working || authenticating
+                            ? null
+                            : authenticate,
                         child: const Text('了解后验证设备身份'),
                       ),
-                    if (auth != null) ...[
+                    if (auth != null &&
+                        widget.appState.rebuildRequiresTypedConfirmation) ...[
                       if (auth.unsecured)
                         const Text('设备未设置系统锁屏凭据。必须完成双重文字确认，并按住按钮至少 3 秒。'),
                       TextField(
@@ -173,7 +215,18 @@ class _VaultRebuildPageState extends State<VaultRebuildPage> {
                             pointerHeld = true;
                             holdReady = false;
                             hold?.cancel();
-                            await widget.appState.beginRebuildHold(auth);
+                            final started = await widget.appState
+                                .beginRebuildHold(auth);
+                            if (!started) {
+                              pointerHeld = false;
+                              if (mounted) {
+                                setState(() {
+                                  authorization = null;
+                                  authenticationError = '系统身份验证未完成。';
+                                });
+                              }
+                              return;
+                            }
                             if (!mounted ||
                                 !pointerHeld ||
                                 epoch != holdEpoch) {

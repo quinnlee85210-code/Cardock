@@ -1,5 +1,20 @@
 const Map<String, String>
 appStateRecoveryEnglishTranslations = <String, String>{
+  '上一次系统验证仍在结束，请稍后重试；原密码和保险库数据未修改。':
+      'The previous system authentication is still finishing. Try again shortly; the existing password and vault data were not changed.',
+  '本机恢复密钥暂时无法访问，密保操作未完成；原密码和保险库数据未修改。':
+      'The recovery key on this device could not be accessed. The recovery operation was not completed; the existing password and vault data were not changed.',
+  '系统验证已中断，密保操作未完成。请保持应用在前台重试。':
+      'System authentication was interrupted. The recovery operation was not completed. Keep Cardock in the foreground and try again.',
+  '系统验证已超时，密保操作未完成。请重新发起验证。':
+      'System authentication timed out. The recovery operation was not completed. Start authentication again.',
+  '本机未设置设备锁屏密码，无法保护密保密钥。请先设置设备锁屏密码；无需开启面容 ID 或触控 ID。':
+      'A device passcode is required to protect security-question recovery. Set a device passcode first; Face ID or Touch ID is not required.',
+  '本机设备身份验证未完成，密保设置或恢复未执行。可使用设备锁屏密码重试。':
+      'Device authentication was not completed. Security-question setup or recovery was not performed. Try again using the device passcode.',
+  '旧版密保密钥仍受原生物识别保护，暂时无法读取。请使用原密码进入设置，关闭本机所有已配置的密保后再重新设置；业务数据不会因此删除。':
+      'The existing recovery key is still protected by its original biometrics and could not be read. Use the original passwords to open Settings, turn off every configured recovery setup on this device, then set recovery up again. This does not delete vault data.',
+
   '本机尚未配置诱饵保险库。': 'No decoy vault is configured on this device.',
   '该保险库已配置密码恢复；如需更换问题，请先验证密码并关闭原配置。':
       'Password recovery is already configured for this vault. To change the questions, verify its password and turn off the existing configuration first.',
@@ -131,6 +146,21 @@ appStateRecoveryEnglishTranslations = <String, String>{
 
 const Map<String, String>
 appStateRecoveryJapaneseTranslations = <String, String>{
+  '上一次系统验证仍在结束，请稍后重试；原密码和保险库数据未修改。':
+      '前のシステム認証の終了処理中です。しばらくしてから再試行してください。元のパスワードと保管庫データは変更されていません。',
+  '本机恢复密钥暂时无法访问，密保操作未完成；原密码和保险库数据未修改。':
+      'この端末の復旧キーにアクセスできません。秘密の質問に関する操作は完了していません。元のパスワードと保管庫データは変更されていません。',
+  '系统验证已中断，密保操作未完成。请保持应用在前台重试。':
+      'システム認証が中断されました。秘密の質問に関する操作は完了していません。Cardockを前面に保って再試行してください。',
+  '系统验证已超时，密保操作未完成。请重新发起验证。':
+      'システム認証がタイムアウトしました。秘密の質問に関する操作は完了していません。認証をやり直してください。',
+  '本机未设置设备锁屏密码，无法保护密保密钥。请先设置设备锁屏密码；无需开启面容 ID 或触控 ID。':
+      '秘密の質問の復旧キーを保護するには端末のパスコードが必要です。端末のパスコードを設定してください。Face IDやTouch IDは不要です。',
+  '本机设备身份验证未完成，密保设置或恢复未执行。可使用设备锁屏密码重试。':
+      '端末の本人確認が完了していません。秘密の質問の設定または復旧は実行されませんでした。端末のパスコードで再試行できます。',
+  '旧版密保密钥仍受原生物识别保护，暂时无法读取。请使用原密码进入设置，关闭本机所有已配置的密保后再重新设置；业务数据不会因此删除。':
+      '旧版の復旧キーは元の生体認証で保護されており、読み取れません。元のパスワードで設定を開き、この端末で設定済みの復旧をすべて無効にしてから再設定してください。保管庫のデータは削除されません。',
+
   '本机尚未配置诱饵保险库。': 'この端末にはおとり保管庫が設定されていません。',
   '该保险库已配置密码恢复；如需更换问题，请先验证密码并关闭原配置。':
       'この保管庫にはパスワード復旧が設定済みです。質問を変更するには、この保管庫のパスワードを確認し、現在の設定を先にオフにしてください。',

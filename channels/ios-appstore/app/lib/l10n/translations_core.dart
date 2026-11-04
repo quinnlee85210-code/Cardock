@@ -1,4 +1,5 @@
 const Map<String, String> coreEnglishTranslations = <String, String>{
+  'Cardock账号密码订阅管理器': 'Cardock: Passwords & Subs',
   'Cardock': 'Cardock',
   '确定': 'OK',
   '取消': 'Cancel',
@@ -43,6 +44,7 @@ const Map<String, String> coreEnglishTranslations = <String, String>{
 };
 
 const Map<String, String> coreJapaneseTranslations = <String, String>{
+  'Cardock账号密码订阅管理器': 'Cardock アカウント・パスワード・サブスク管理',
   'Cardock': 'Cardock',
   '确定': 'OK',
   '取消': 'キャンセル',

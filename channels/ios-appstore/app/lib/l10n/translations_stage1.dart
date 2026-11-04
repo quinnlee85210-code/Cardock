@@ -216,6 +216,8 @@ const stage1EnglishTranslations = <String, String>{
   '重建未完成；若清理已开始，请重新打开应用继续完成。':
       'Rebuild did not finish. If cleanup has started, reopen the app to complete it.',
   '系统身份验证未完成。': 'System identity verification did not complete.',
+  '系统身份验证通过后，将立即删除本机数据并重新开始。外部 .asmbackup 文件和合法完整版授权会保留；没有备份的数据将永久丢失。':
+      'After system identity verification succeeds, local data will be deleted immediately and setup will start again. External .asmbackup files and valid full-version access will be kept. Data without a backup will be permanently lost.',
 };
 
 const stage1JapaneseTranslations = <String, String>{
@@ -405,4 +407,6 @@ const stage1JapaneseTranslations = <String, String>{
   '正在重建，请稍候…': '再構築中です。お待ちください…',
   '重建未完成；若清理已开始，请重新打开应用继续完成。': '再構築は未完了です。消去が開始済みの場合、アプリを開き直して完了してください。',
   '系统身份验证未完成。': 'システムの本人確認が完了しませんでした。',
+  '系统身份验证通过后，将立即删除本机数据并重新开始。外部 .asmbackup 文件和合法完整版授权会保留；没有备份的数据将永久丢失。':
+      'システムの本人確認に成功すると、端末内のデータを直ちに削除し、初期設定から再開します。外部の .asmbackup ファイルと有効なフル機能版の購入権は保持されます。バックアップのないデータは復元できません。',
 };
