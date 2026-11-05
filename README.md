@@ -20,11 +20,11 @@ Cardock 是本地账号、密码与订阅记录工具。本仓库按网站 Andro
 | --- | --- | --- |
 | [channels/android-website](channels/android-website) | 1.0.3+87 / schema15 | 官网 Android 客户端；正式包不申请 INTERNET 权限，购买和订单操作交给外部浏览器，应用离线验证授权；不提供临时局域网电脑录入。 |
 | [channels/android-play](channels/android-play) | 1.0.2+86 / schema15 | Google Play 客户端；使用 Play Billing，保留用户主动启动的临时局域网电脑录入。 |
-| [channels/ios-appstore](channels/ios-appstore) | 1.0.1+92 / schema15（已提交审核，等待审核，未正式发布） | iOS 客户端；使用 StoreKit，保留用户主动启动的临时局域网电脑录入；最低 iOS 16。 |
+| [channels/ios-appstore](channels/ios-appstore) | 1.0.1+92 / schema15（已上架） | iOS 客户端；使用 StoreKit，保留用户主动启动的临时局域网电脑录入；最低 iOS 16。 |
 
 三个目录是各渠道的独立源码快照，避免把不同渠道的权限、购买和平台实现混在一起。每个快照可能包含 Flutter 跨平台工程模板；其他平台目录的存在不表示该渠道已经在那些平台发布。iOS 的 `third_party/file_picker` 是必需的相对路径依赖。
 
-iOS 92 已提交 App Store 审核，当前正在等待审核；当前 App Store 正式版本仍为 1.0.0。该快照包括系统认证重置、密保恢复修复、三语名称和设置页文案更新。源码快照可供审查不代表 Apple 已批准或发布更新。
+iOS 1.0.1 已上架；维护者于 2026-11-04（America/Los_Angeles）确认更新已发布、总体使用正常。Apple 美国区公开接口已返回版本 1.0.1；该接口不返回内部构建号，92 依据此前已提交的构建及本次发布确认追溯。该快照包括系统认证重置、密保恢复修复、三语名称和设置页文案更新。总体使用确认不扩展为新增购买、恢复或逐设备专项测试通过。
 
 原始来源、逐文件 SHA256 及公开副本的构建／测试路径适配见 [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) 和 [PUBLICATION.md](PUBLICATION.md)。本次公开不改变现有应用版本、购买权益或用户数据格式。
 

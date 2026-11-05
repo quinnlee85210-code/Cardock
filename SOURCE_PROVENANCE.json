@@ -30,16 +30,25 @@
       "version": "1.0.1+92",
       "sourceCommit": "9dbf08b1d924d5198cbc214abcc219dec4f9bdf9",
       "sourceTree": "2844809daaaaccd834b0e29b968385d76dea505d",
-      "appStoreStatus": "waiting_for_review",
-      "appStoreStatusMeaning": "Submitted to App Store review and waiting for review; not yet publicly released.",
-      "currentPublicAppStoreVersion": "1.0.0",
+      "appStoreStatus": "publicly_released",
+      "appStoreStatusMeaning": "Public App Store version 1.0.1 verified through Apple US lookup; publication and normal overall use confirmed by the maintainer. Internal build 92 is traced through the previously submitted build, not returned by the public lookup.",
+      "currentPublicAppStoreVersion": "1.0.1",
       "export": {
         "exportMethod": "git_cat_file_raw_blobs",
         "rawBlobCount": 1421,
         "rawBlobBytes": 13695642,
         "rawBlobObjectHashesVerified": true
       },
-      "reviewSubmittedDate": "2026-11-04"
+      "reviewSubmittedDate": "2026-11-04",
+      "releaseConfirmedDate": "2026-11-04",
+      "releaseConfirmedTimeZone": "America/Los_Angeles",
+      "releaseEvidence": {
+        "publicLookupUrl": "https://itunes.apple.com/lookup?id=6813852302&country=us",
+        "publicLookupVersion": "1.0.1",
+        "publicLookupCurrentVersionReleaseDate": "2026-11-04T21:31:34Z",
+        "publicLookupContainsBuildNumber": false,
+        "maintainerConfirmedPublishedAndNormalOverallUse": true
+      }
     }
   },
   "originalHistoryIncluded": false,

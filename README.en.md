@@ -12,11 +12,11 @@ This is a **source-available project, not an open-source license grant**. The [C
 | --- | --- | --- |
 | `channels/android-website` | 1.0.3+87, schema15 | Official APK has no INTERNET permission; purchase and order interactions use an external browser, followed by offline license verification. No temporary LAN input feature. |
 | `channels/android-play` | 1.0.2+86, schema15 | Play Billing and an explicitly started temporary LAN input feature. |
-| `channels/ios-appstore` | 1.0.1+92, schema15 (submitted; waiting for review; not publicly released) | StoreKit and temporary LAN input; iOS 16 or later. Includes the required vendored `third_party/file_picker` dependency. |
+| `channels/ios-appstore` | 1.0.1+92, schema15 (publicly released) | StoreKit and temporary LAN input; iOS 16 or later. Includes the required vendored `third_party/file_picker` dependency. |
 
 Each directory is a separate channel snapshot. Platform templates in a snapshot are not proof that it was released on those platforms. Source provenance, per-file hashes and the small build/test portability changes are recorded in [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json) and [PUBLICATION.md](PUBLICATION.md).
 
-iOS 92 has been submitted to App Store review and is waiting for review. The current public App Store version remains 1.0.0. This snapshot includes device-authenticated reset and recovery fixes, localized app names, and settings copy updates. Source availability does not mean Apple has approved or released the update.
+iOS 1.0.1 is publicly released. The maintainer confirmed publication and normal overall use on 2026-11-04 (America/Los_Angeles). Apple's public US lookup returns version 1.0.1, but does not expose the internal build number; build 92 is traced through the previously submitted build and this publication confirmation. This snapshot includes device-authenticated reset and recovery fixes, localized app names, and settings copy updates. Overall-use confirmation is not new purchase, restore, or per-device test evidence.
 
 Source publication enables inspection. It is not an independent audit or proof that a program contains no backdoors or vulnerabilities. The initial HTTP page used for temporary LAN input has a documented authenticity limitation; the feature is not described as fully HTTPS or end-to-end secure. See [SECURITY.md](SECURITY.md).
 
